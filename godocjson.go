@@ -106,6 +106,7 @@ func processFuncDecl(d *ast.FuncDecl) *FuncDecl {
 		}
 	}
 
+	// TODO: process return types
 	return &FuncDecl{
 		Parameters: params,
 	}
