@@ -11,9 +11,11 @@ import (
 )
 
 type Func struct {
-	Doc  string `json:"doc"`
-	Name string `json:"name"`
-	Decl *ast.FuncDecl
+	Doc               string `json:"doc"`
+	Name              string `json:"name"`
+	PackageName       string `json:"packageName"`
+	PackageImportPath string `json:"packageImportPath"`
+	Decl              *ast.FuncDecl
 
 	// methods
 	// (for functions, these fields have the respective zero value)
@@ -49,9 +51,11 @@ type Note struct {
 }
 
 type Type struct {
-	Doc  string `json:"doc"`
-	Name string `json:"name"`
-	Decl *ast.GenDecl
+	PackageName       string `json:"packageName"`
+	PackageImportPath string `json:"packageImportPath"`
+	Doc               string `json:"doc"`
+	Name              string `json:"name"`
+	Decl              *ast.GenDecl
 
 	// associated declarations
 	Consts  []*Value `json:"consts"`  // sorted list of constants of (mostly) this type
@@ -61,30 +65,36 @@ type Type struct {
 }
 
 type Value struct {
-	Doc   string   `json:"doc"`
-	Names []string `json:"names"` // var or const names in declaration order
-	Decl  *ast.GenDecl
+	PackageName       string   `json:"packageName"`
+	PackageImportPath string   `json:"packageImportPath"`
+	Doc               string   `json:"doc"`
+	Names             []string `json:"names"` // var or const names in declaration order
+	Decl              *ast.GenDecl
 }
 
-func CopyFuncs(f []*doc.Func) []*Func {
+func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string) []*Func {
 	newFuncs := make([]*Func, len(f))
 	for i, n := range f {
 		newFuncs[i] = &Func{
-			Doc:  n.Doc,
-			Name: n.Name,
-			Orig: n.Orig,
-			Recv: n.Recv,
+			Doc:               n.Doc,
+			Name:              n.Name,
+			PackageName:       packageName,
+			PackageImportPath: packageImportPath,
+			Orig:              n.Orig,
+			Recv:              n.Recv,
 		}
 	}
 	return newFuncs
 }
 
-func CopyValues(c []*doc.Value) []*Value {
+func CopyValues(c []*doc.Value, packageName string, packageImportPath string) []*Value {
 	newConsts := make([]*Value, len(c))
 	for i, c := range c {
 		newConsts[i] = &Value{
-			Doc:   c.Doc,
-			Names: c.Names,
+			Doc:               c.Doc,
+			Names:             c.Names,
+			PackageName:       packageName,
+			PackageImportPath: packageImportPath,
 		}
 	}
 	return newConsts
@@ -115,21 +125,24 @@ func CopyPackage(pkg *doc.Package) Package {
 		newPkg.Notes[key] = notes
 	}
 
-	newPkg.Consts = CopyValues(pkg.Consts)
-	newPkg.Funcs = CopyFuncs(pkg.Funcs)
+	newPkg.Consts = CopyValues(pkg.Consts, pkg.Name, pkg.ImportPath)
+	newPkg.Funcs = CopyFuncs(pkg.Funcs, pkg.Name, pkg.ImportPath)
 
 	newPkg.Types = make([]*Type, len(pkg.Types))
 	for i, t := range pkg.Types {
 		newPkg.Types[i] = &Type{
-			Consts:  CopyValues(t.Consts),
-			Doc:     t.Doc,
-			Funcs:   CopyFuncs(t.Funcs),
-			Methods: CopyFuncs(t.Methods),
-			Vars:    CopyValues(t.Vars),
+			Name:              t.Name,
+			PackageName:       pkg.Name,
+			PackageImportPath: pkg.ImportPath,
+			Consts:            CopyValues(t.Consts, pkg.Name, pkg.ImportPath),
+			Doc:               t.Doc,
+			Funcs:             CopyFuncs(t.Funcs, pkg.Name, pkg.ImportPath),
+			Methods:           CopyFuncs(t.Methods, pkg.Name, pkg.ImportPath),
+			Vars:              CopyValues(t.Vars, pkg.Name, pkg.ImportPath),
 		}
 	}
 
-	newPkg.Vars = CopyValues(pkg.Vars)
+	newPkg.Vars = CopyValues(pkg.Vars, pkg.Name, pkg.ImportPath)
 	return newPkg
 }
 

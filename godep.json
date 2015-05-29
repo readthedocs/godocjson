@@ -63,6 +63,8 @@
   "bugs": null,
   "consts": [
     {
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "",
       "names": [
         "Readme"
@@ -72,8 +74,10 @@
   ],
   "types": [
     {
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "A Command is an implementation of a godep command\nlike godep save or godep go.\n",
-      "name": "",
+      "name": "Command",
       "Decl": null,
       "consts": [],
       "vars": [],
@@ -82,6 +86,8 @@
         {
           "doc": "",
           "name": "Name",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "*Command",
           "orig": "*Command",
@@ -90,6 +96,8 @@
         {
           "doc": "",
           "name": "UsageExit",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "*Command",
           "orig": "*Command",
@@ -98,8 +106,10 @@
       ]
     },
     {
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "A Dependency is a specific revision of a package.\n",
-      "name": "",
+      "name": "Dependency",
       "Decl": null,
       "consts": [],
       "vars": [],
@@ -107,8 +117,10 @@
       "methods": []
     },
     {
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "Godeps describes what a package needs to be rebuilt reproducibly.\nIt's the same information stored in file Godeps.\n",
-      "name": "",
+      "name": "Godeps",
       "Decl": null,
       "consts": [],
       "vars": [],
@@ -116,6 +128,8 @@
         {
           "doc": "",
           "name": "ReadAndLoadGodeps",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "",
           "orig": "",
@@ -126,6 +140,8 @@
         {
           "doc": "pkgs is the list of packages to read dependencies\n",
           "name": "Load",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "*Godeps",
           "orig": "*Godeps",
@@ -134,6 +150,8 @@
         {
           "doc": "",
           "name": "WriteTo",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "*Godeps",
           "orig": "*Godeps",
@@ -142,8 +160,10 @@
       ]
     },
     {
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "",
-      "name": "",
+      "name": "Package",
       "Decl": null,
       "consts": [],
       "vars": [],
@@ -151,8 +171,10 @@
       "methods": []
     },
     {
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "",
-      "name": "",
+      "name": "VCS",
       "Decl": null,
       "consts": [],
       "vars": [],
@@ -160,6 +182,8 @@
         {
           "doc": "",
           "name": "VCSForImportPath",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "",
           "orig": "",
@@ -168,6 +192,8 @@
         {
           "doc": "",
           "name": "VCSFromDir",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "",
           "orig": "",
@@ -178,6 +204,8 @@
         {
           "doc": "RevSync checks out the revision given by rev in dir.\nThe dir must exist and rev must be a valid revision.\n",
           "name": "RevSync",
+          "packageName": "main",
+          "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
           "Decl": null,
           "recv": "*VCS",
           "orig": "*VCS",
@@ -191,6 +219,8 @@
     {
       "doc": "LoadPackages loads the named packages using go list -json.\nUnlike the go tool, an empty argument list is treated as\nan empty list; \".\" must be given explicitly if desired.\n",
       "name": "LoadPackages",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -199,6 +229,8 @@
     {
       "doc": "",
       "name": "LoadVCSAndUpdate",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -207,6 +239,8 @@
     {
       "doc": "",
       "name": "ReadGodeps",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -215,6 +249,8 @@
     {
       "doc": "",
       "name": "TestMatchPattern",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -223,6 +259,8 @@
     {
       "doc": "",
       "name": "TestQualify",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -231,6 +269,8 @@
     {
       "doc": "",
       "name": "TestRewrite",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -239,6 +279,8 @@
     {
       "doc": "",
       "name": "TestSave",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -247,6 +289,8 @@
     {
       "doc": "",
       "name": "TestStripImportComment",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -255,6 +299,8 @@
     {
       "doc": "",
       "name": "TestUnqualify",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
@@ -263,6 +309,8 @@
     {
       "doc": "",
       "name": "TestUpdate",
+      "packageName": "main",
+      "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "Decl": null,
       "recv": "",
       "orig": "",
