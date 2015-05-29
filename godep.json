@@ -68,7 +68,10 @@
       "doc": "",
       "names": [
         "Readme"
-      ]
+      ],
+      "type": "const",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/save.go",
+      "line": 418
     }
   ],
   "types": [
@@ -77,6 +80,9 @@
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "A Command is an implementation of a godep command\nlike godep save or godep go.\n",
       "name": "Command",
+      "type": "",
+      "filename": "",
+      "line": 0,
       "consts": [],
       "vars": [],
       "funcs": [],
@@ -86,6 +92,8 @@
           "name": "Name",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/main.go",
+          "line": 35,
           "recv": "*Command",
           "orig": "*Command"
         },
@@ -94,6 +102,8 @@
           "name": "UsageExit",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/main.go",
+          "line": 44,
           "recv": "*Command",
           "orig": "*Command"
         }
@@ -104,6 +114,9 @@
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "A Dependency is a specific revision of a package.\n",
       "name": "Dependency",
+      "type": "",
+      "filename": "",
+      "line": 0,
       "consts": [],
       "vars": [],
       "funcs": [],
@@ -114,6 +127,9 @@
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "Godeps describes what a package needs to be rebuilt reproducibly.\nIt's the same information stored in file Godeps.\n",
       "name": "Godeps",
+      "type": "",
+      "filename": "",
+      "line": 0,
       "consts": [],
       "vars": [],
       "funcs": [
@@ -122,6 +138,8 @@
           "name": "ReadAndLoadGodeps",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/dep.go",
+          "line": 168,
           "recv": "",
           "orig": ""
         }
@@ -132,6 +150,8 @@
           "name": "Load",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/dep.go",
+          "line": 45,
           "recv": "*Godeps",
           "orig": "*Godeps"
         },
@@ -140,6 +160,8 @@
           "name": "WriteTo",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/dep.go",
+          "line": 185,
           "recv": "*Godeps",
           "orig": "*Godeps"
         }
@@ -150,6 +172,9 @@
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "",
       "name": "Package",
+      "type": "",
+      "filename": "",
+      "line": 0,
       "consts": [],
       "vars": [],
       "funcs": [],
@@ -160,6 +185,9 @@
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
       "doc": "",
       "name": "VCS",
+      "type": "",
+      "filename": "",
+      "line": 0,
       "consts": [],
       "vars": [],
       "funcs": [
@@ -168,6 +196,8 @@
           "name": "VCSForImportPath",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/vcs.go",
+          "line": 71,
           "recv": "",
           "orig": ""
         },
@@ -176,6 +206,8 @@
           "name": "VCSFromDir",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/vcs.go",
+          "line": 59,
           "recv": "",
           "orig": ""
         }
@@ -186,6 +218,8 @@
           "name": "RevSync",
           "packageName": "main",
           "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+          "filename": "/Users/austin/go/src/github.com/tools/godep/vcs.go",
+          "line": 108,
           "recv": "*VCS",
           "orig": "*VCS"
         }
@@ -199,6 +233,8 @@
       "name": "LoadPackages",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/pkg.go",
+      "line": 34,
       "recv": "",
       "orig": ""
     },
@@ -207,6 +243,8 @@
       "name": "LoadVCSAndUpdate",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/update.go",
+      "line": 161,
       "recv": "",
       "orig": ""
     },
@@ -215,6 +253,8 @@
       "name": "ReadGodeps",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/dep.go",
+      "line": 141,
       "recv": "",
       "orig": ""
     },
@@ -223,6 +263,8 @@
       "name": "TestMatchPattern",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/match_test.go",
+      "line": 5,
       "recv": "",
       "orig": ""
     },
@@ -231,6 +273,8 @@
       "name": "TestQualify",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/rewrite_test.go",
+      "line": 26,
       "recv": "",
       "orig": ""
     },
@@ -239,6 +283,8 @@
       "name": "TestRewrite",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/rewrite_test.go",
+      "line": 82,
       "recv": "",
       "orig": ""
     },
@@ -247,6 +293,8 @@
       "name": "TestSave",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/save_test.go",
+      "line": 62,
       "recv": "",
       "orig": ""
     },
@@ -255,6 +303,8 @@
       "name": "TestStripImportComment",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/save_test.go",
+      "line": 1094,
       "recv": "",
       "orig": ""
     },
@@ -263,6 +313,8 @@
       "name": "TestUnqualify",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/rewrite_test.go",
+      "line": 9,
       "recv": "",
       "orig": ""
     },
@@ -271,6 +323,8 @@
       "name": "TestUpdate",
       "packageName": "main",
       "packageImportPath": "/Users/austin/go/src/github.com/tools/godep",
+      "filename": "/Users/austin/go/src/github.com/tools/godep/update_test.go",
+      "line": 13,
       "recv": "",
       "orig": ""
     }

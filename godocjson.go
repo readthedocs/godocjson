@@ -15,6 +15,8 @@ type Func struct {
 	Name              string `json:"name"`
 	PackageName       string `json:"packageName"`
 	PackageImportPath string `json:"packageImportPath"`
+	Filename          string `json:"filename"`
+	Line              int    `json:"line"`
 	// Decl              *ast.FuncDecl
 
 	// methods
@@ -58,6 +60,9 @@ type Type struct {
 	PackageImportPath string `json:"packageImportPath"`
 	Doc               string `json:"doc"`
 	Name              string `json:"name"`
+	Type              string `json:"type"`
+	Filename          string `json:"filename"`
+	Line              int    `json:"line"`
 	// Decl              *ast.GenDecl
 
 	// associated declarations
@@ -73,13 +78,17 @@ type Value struct {
 	PackageImportPath string   `json:"packageImportPath"`
 	Doc               string   `json:"doc"`
 	Names             []string `json:"names"` // var or const names in declaration order
+	Type              string   `json:"type"`
+	Filename          string   `json:"filename"`
+	Line              int      `json:"line"`
 	// Decl              *ast.GenDecl
 }
 
 // CopyFuncs produces a json-annotated array of Func objects from an array of GoDoc Func objects.
-func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string) []*Func {
+func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string, fileSet *token.FileSet) []*Func {
 	newFuncs := make([]*Func, len(f))
 	for i, n := range f {
+		position := fileSet.Position(n.Decl.Pos())
 		newFuncs[i] = &Func{
 			Doc:               n.Doc,
 			Name:              n.Name,
@@ -87,27 +96,33 @@ func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string) []*F
 			PackageImportPath: packageImportPath,
 			Orig:              n.Orig,
 			Recv:              n.Recv,
+			Filename:          position.Filename,
+			Line:              position.Line,
 		}
 	}
 	return newFuncs
 }
 
 // CopyValues produces a json-annotated array of Value objects from an array of GoDoc Value objects.
-func CopyValues(c []*doc.Value, packageName string, packageImportPath string) []*Value {
+func CopyValues(c []*doc.Value, packageName string, packageImportPath string, fileSet *token.FileSet) []*Value {
 	newConsts := make([]*Value, len(c))
 	for i, c := range c {
+		position := fileSet.Position(c.Decl.TokPos)
 		newConsts[i] = &Value{
 			Doc:               c.Doc,
 			Names:             c.Names,
 			PackageName:       packageName,
 			PackageImportPath: packageImportPath,
+			Type:              c.Decl.Tok.String(),
+			Filename:          position.Filename,
+			Line:              position.Line,
 		}
 	}
 	return newConsts
 }
 
 // CopyPackage produces a json-annotated Package object from a GoDoc Package object.
-func CopyPackage(pkg *doc.Package) Package {
+func CopyPackage(pkg *doc.Package, fileSet *token.FileSet) Package {
 	newPkg := Package{
 		Type:       "package",
 		Doc:        pkg.Doc,
@@ -132,8 +147,8 @@ func CopyPackage(pkg *doc.Package) Package {
 		newPkg.Notes[key] = notes
 	}
 
-	newPkg.Consts = CopyValues(pkg.Consts, pkg.Name, pkg.ImportPath)
-	newPkg.Funcs = CopyFuncs(pkg.Funcs, pkg.Name, pkg.ImportPath)
+	newPkg.Consts = CopyValues(pkg.Consts, pkg.Name, pkg.ImportPath, fileSet)
+	newPkg.Funcs = CopyFuncs(pkg.Funcs, pkg.Name, pkg.ImportPath, fileSet)
 
 	newPkg.Types = make([]*Type, len(pkg.Types))
 	for i, t := range pkg.Types {
@@ -141,15 +156,15 @@ func CopyPackage(pkg *doc.Package) Package {
 			Name:              t.Name,
 			PackageName:       pkg.Name,
 			PackageImportPath: pkg.ImportPath,
-			Consts:            CopyValues(t.Consts, pkg.Name, pkg.ImportPath),
+			Consts:            CopyValues(t.Consts, pkg.Name, pkg.ImportPath, fileSet),
 			Doc:               t.Doc,
-			Funcs:             CopyFuncs(t.Funcs, pkg.Name, pkg.ImportPath),
-			Methods:           CopyFuncs(t.Methods, pkg.Name, pkg.ImportPath),
-			Vars:              CopyValues(t.Vars, pkg.Name, pkg.ImportPath),
+			Funcs:             CopyFuncs(t.Funcs, pkg.Name, pkg.ImportPath, fileSet),
+			Methods:           CopyFuncs(t.Methods, pkg.Name, pkg.ImportPath, fileSet),
+			Vars:              CopyValues(t.Vars, pkg.Name, pkg.ImportPath, fileSet),
 		}
 	}
 
-	newPkg.Vars = CopyValues(pkg.Vars, pkg.Name, pkg.ImportPath)
+	newPkg.Vars = CopyValues(pkg.Vars, pkg.Name, pkg.ImportPath, fileSet)
 	return newPkg
 }
 
@@ -168,7 +183,7 @@ func main() {
 	}
 	for _, pkg := range pkgs {
 		docPkg := doc.New(pkg, directory, 0)
-		cleanedPkg := CopyPackage(docPkg)
+		cleanedPkg := CopyPackage(docPkg, fileSet)
 		pkgJSON, err := json.MarshalIndent(cleanedPkg, "", "  ")
 		if err != nil {
 			panic(err)
