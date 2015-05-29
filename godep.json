@@ -1,0 +1,272 @@
+{
+  "type": "package",
+  "doc": "Command godep helps build packages reproducibly by fixing\ntheir dependencies.\n\nExample Usage\n\nSave currently-used dependencies to file Godeps:\n\n\t$ godep save\n\nBuild project using saved dependencies:\n\n\t$ godep go install\n\nor\n\n\t$ GOPATH=`godep path`:$GOPATH\n\t$ go install\n",
+  "name": "main",
+  "importPath": "/Users/austin/go/src/github.com/tools/godep",
+  "imports": [
+    "bufio",
+    "bytes",
+    "encoding/json",
+    "errors",
+    "flag",
+    "fmt",
+    "github.com/kr/fs",
+    "go/ast",
+    "go/parser",
+    "go/printer",
+    "go/token",
+    "golang.org/x/tools/go/vcs",
+    "io",
+    "io/ioutil",
+    "log",
+    "os",
+    "os/exec",
+    "path/filepath",
+    "reflect",
+    "regexp",
+    "runtime",
+    "sort",
+    "strconv",
+    "strings",
+    "testing",
+    "text/template"
+  ],
+  "filenames": [
+    "/Users/austin/go/src/github.com/tools/godep/dep.go",
+    "/Users/austin/go/src/github.com/tools/godep/doc.go",
+    "/Users/austin/go/src/github.com/tools/godep/get.go",
+    "/Users/austin/go/src/github.com/tools/godep/go.go",
+    "/Users/austin/go/src/github.com/tools/godep/main.go",
+    "/Users/austin/go/src/github.com/tools/godep/match_test.go",
+    "/Users/austin/go/src/github.com/tools/godep/path.go",
+    "/Users/austin/go/src/github.com/tools/godep/pkg.go",
+    "/Users/austin/go/src/github.com/tools/godep/restore.go",
+    "/Users/austin/go/src/github.com/tools/godep/rewrite.go",
+    "/Users/austin/go/src/github.com/tools/godep/rewrite_test.go",
+    "/Users/austin/go/src/github.com/tools/godep/save.go",
+    "/Users/austin/go/src/github.com/tools/godep/save_test.go",
+    "/Users/austin/go/src/github.com/tools/godep/update.go",
+    "/Users/austin/go/src/github.com/tools/godep/update_test.go",
+    "/Users/austin/go/src/github.com/tools/godep/util.go",
+    "/Users/austin/go/src/github.com/tools/godep/vcs.go"
+  ],
+  "notes": {
+    "TODO": [
+      {
+        "pos": 78202,
+        "end": 78241,
+        "uid": "kr",
+        "body": "find tag names if possible\n"
+      }
+    ]
+  },
+  "bugs": null,
+  "consts": [
+    {
+      "doc": "",
+      "names": [
+        "Readme"
+      ],
+      "Decl": null
+    }
+  ],
+  "types": [
+    {
+      "doc": "A Command is an implementation of a godep command\nlike godep save or godep go.\n",
+      "name": "",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": [
+        {
+          "doc": "",
+          "name": "Name",
+          "Decl": null,
+          "recv": "*Command",
+          "orig": "*Command",
+          "Level": 0
+        },
+        {
+          "doc": "",
+          "name": "UsageExit",
+          "Decl": null,
+          "recv": "*Command",
+          "orig": "*Command",
+          "Level": 0
+        }
+      ]
+    },
+    {
+      "doc": "A Dependency is a specific revision of a package.\n",
+      "name": "",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": []
+    },
+    {
+      "doc": "Godeps describes what a package needs to be rebuilt reproducibly.\nIt's the same information stored in file Godeps.\n",
+      "name": "",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [
+        {
+          "doc": "",
+          "name": "ReadAndLoadGodeps",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        }
+      ],
+      "methods": [
+        {
+          "doc": "pkgs is the list of packages to read dependencies\n",
+          "name": "Load",
+          "Decl": null,
+          "recv": "*Godeps",
+          "orig": "*Godeps",
+          "Level": 0
+        },
+        {
+          "doc": "",
+          "name": "WriteTo",
+          "Decl": null,
+          "recv": "*Godeps",
+          "orig": "*Godeps",
+          "Level": 0
+        }
+      ]
+    },
+    {
+      "doc": "",
+      "name": "",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": []
+    },
+    {
+      "doc": "",
+      "name": "",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [
+        {
+          "doc": "",
+          "name": "VCSForImportPath",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "",
+          "name": "VCSFromDir",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        }
+      ],
+      "methods": [
+        {
+          "doc": "RevSync checks out the revision given by rev in dir.\nThe dir must exist and rev must be a valid revision.\n",
+          "name": "RevSync",
+          "Decl": null,
+          "recv": "*VCS",
+          "orig": "*VCS",
+          "Level": 0
+        }
+      ]
+    }
+  ],
+  "vars": [],
+  "funcs": [
+    {
+      "doc": "LoadPackages loads the named packages using go list -json.\nUnlike the go tool, an empty argument list is treated as\nan empty list; \".\" must be given explicitly if desired.\n",
+      "name": "LoadPackages",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "LoadVCSAndUpdate",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "ReadGodeps",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestMatchPattern",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestQualify",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestRewrite",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestSave",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestStripImportComment",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestUnqualify",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestUpdate",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    }
+  ]
+}
