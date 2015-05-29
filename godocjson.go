@@ -12,13 +12,13 @@ import (
 
 // Func represents a function declaration.
 type Func struct {
-	Doc               string    `json:"doc"`
-	Name              string    `json:"name"`
-	PackageName       string    `json:"packageName"`
-	PackageImportPath string    `json:"packageImportPath"`
-	Filename          string    `json:"filename"`
-	Line              int       `json:"line"`
-	Decl              *FuncDecl `json:"declaration"`
+	Doc               string      `json:"doc"`
+	Name              string      `json:"name"`
+	PackageName       string      `json:"packageName"`
+	PackageImportPath string      `json:"packageImportPath"`
+	Filename          string      `json:"filename"`
+	Line              int         `json:"line"`
+	Params            []FuncParam `json:"parameters"`
 
 	// methods
 	// (for functions, these fields have the respective zero value)
@@ -85,31 +85,21 @@ type Value struct {
 	// Decl              *ast.GenDecl
 }
 
-// FuncDecl represents interesting information from an ast.FuncDecl, attached to a function.
-type FuncDecl struct {
-	Parameters []FuncParam `json:"parameters"`
-}
-
 // FuncParam represents a parameter to a function.
 type FuncParam struct {
 	Type string `json:"type"`
 	Name string `json:"name"`
 }
 
-func processFuncDecl(d *ast.FuncDecl) *FuncDecl {
-
-	params := make([]FuncParam, d.Type.Params.NumFields())
+func processFuncDecl(d *ast.FuncDecl, fun *Func) {
+	fun.Params = make([]FuncParam, d.Type.Params.NumFields())
 	for i, f := range d.Type.Params.List {
-		params[i] = FuncParam{
+		fun.Params[i] = FuncParam{
 			Type: "", // TODO: do a type switch on reflect.TypeOf(f.Type)
 			Name: f.Names[0].String(),
 		}
 	}
-
 	// TODO: process return types
-	return &FuncDecl{
-		Parameters: params,
-	}
 }
 
 // CopyFuncs produces a json-annotated array of Func objects from an array of GoDoc Func objects.
@@ -126,8 +116,8 @@ func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string, file
 			Recv:              n.Recv,
 			Filename:          position.Filename,
 			Line:              position.Line,
-			Decl:              processFuncDecl(n.Decl),
 		}
+		processFuncDecl(n.Decl, newFuncs[i])
 	}
 	return newFuncs
 }
