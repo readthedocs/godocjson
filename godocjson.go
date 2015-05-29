@@ -3,27 +3,28 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"go/ast"
 	"go/doc"
 	"go/parser"
 	"go/token"
 	"os"
 )
 
+// Func represents a function declaration.
 type Func struct {
 	Doc               string `json:"doc"`
 	Name              string `json:"name"`
 	PackageName       string `json:"packageName"`
 	PackageImportPath string `json:"packageImportPath"`
-	Decl              *ast.FuncDecl
+	// Decl              *ast.FuncDecl
 
 	// methods
 	// (for functions, these fields have the respective zero value)
-	Recv  string `json:"recv"` // actual   receiver "T" or "*T"
-	Orig  string `json:"orig"` // original receiver "T" or "*T"
-	Level int    // embedding level; 0 means not embedded
+	Recv string `json:"recv"` // actual   receiver "T" or "*T"
+	Orig string `json:"orig"` // original receiver "T" or "*T"
+	// Level int    // embedding level; 0 means not embedded
 }
 
+// Package represents a package declaration.
 type Package struct {
 	Type       string             `json:"type"`
 	Doc        string             `json:"doc"`
@@ -43,6 +44,7 @@ type Package struct {
 	Funcs  []*Func  `json:"funcs"`
 }
 
+// Note represents a note comment.
 type Note struct {
 	Pos  token.Pos `json:"pos"`
 	End  token.Pos `json:"end"`  // position range of the comment containing the marker
@@ -50,12 +52,13 @@ type Note struct {
 	Body string    `json:"body"` // note body text
 }
 
+// Type represents a type declaration.
 type Type struct {
 	PackageName       string `json:"packageName"`
 	PackageImportPath string `json:"packageImportPath"`
 	Doc               string `json:"doc"`
 	Name              string `json:"name"`
-	Decl              *ast.GenDecl
+	// Decl              *ast.GenDecl
 
 	// associated declarations
 	Consts  []*Value `json:"consts"`  // sorted list of constants of (mostly) this type
@@ -64,14 +67,16 @@ type Type struct {
 	Methods []*Func  `json:"methods"` // sorted list of methods (including embedded ones) of this type
 }
 
+// Value represents a value declaration.
 type Value struct {
 	PackageName       string   `json:"packageName"`
 	PackageImportPath string   `json:"packageImportPath"`
 	Doc               string   `json:"doc"`
 	Names             []string `json:"names"` // var or const names in declaration order
-	Decl              *ast.GenDecl
+	// Decl              *ast.GenDecl
 }
 
+// CopyFuncs produces a json-annotated array of Func objects from an array of GoDoc Func objects.
 func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string) []*Func {
 	newFuncs := make([]*Func, len(f))
 	for i, n := range f {
@@ -87,6 +92,7 @@ func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string) []*F
 	return newFuncs
 }
 
+// CopyValues produces a json-annotated array of Value objects from an array of GoDoc Value objects.
 func CopyValues(c []*doc.Value, packageName string, packageImportPath string) []*Value {
 	newConsts := make([]*Value, len(c))
 	for i, c := range c {
@@ -100,6 +106,7 @@ func CopyValues(c []*doc.Value, packageName string, packageImportPath string) []
 	return newConsts
 }
 
+// CopyPackage produces a json-annotated Package object from a GoDoc Package object.
 func CopyPackage(pkg *doc.Package) Package {
 	newPkg := Package{
 		Type:       "package",
@@ -157,11 +164,11 @@ func main() {
 		for _, pkg := range pkgs {
 			docPkg := doc.New(pkg, dir, 0)
 			cleanedPkg := CopyPackage(docPkg)
-			pkgJson, err := json.MarshalIndent(cleanedPkg, "", "  ")
+			pkgJSON, err := json.MarshalIndent(cleanedPkg, "", "  ")
 			if err != nil {
 				panic(err)
 			}
-			fmt.Printf("%s\n", pkgJson)
+			fmt.Printf("%s\n", pkgJSON)
 		}
 	}
 }
