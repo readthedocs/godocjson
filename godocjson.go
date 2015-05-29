@@ -154,21 +154,25 @@ func CopyPackage(pkg *doc.Package) Package {
 }
 
 func main() {
-	directories := os.Args[1:]
-	for _, dir := range directories {
-		fileSet := token.NewFileSet()
-		pkgs, firstError := parser.ParseDir(fileSet, dir, nil, parser.ParseComments|parser.AllErrors)
-		if firstError != nil {
-			panic(firstError)
+	if len(os.Args) > 2 {
+		panic("Please specify a single directory as the argument.\n")
+	}
+	directory := os.Args[1]
+	fileSet := token.NewFileSet()
+	pkgs, firstError := parser.ParseDir(fileSet, directory, nil, parser.ParseComments|parser.AllErrors)
+	if firstError != nil {
+		panic(firstError)
+	}
+	if len(pkgs) > 1 {
+		panic("Multiple packages found in directory!\n")
+	}
+	for _, pkg := range pkgs {
+		docPkg := doc.New(pkg, directory, 0)
+		cleanedPkg := CopyPackage(docPkg)
+		pkgJSON, err := json.MarshalIndent(cleanedPkg, "", "  ")
+		if err != nil {
+			panic(err)
 		}
-		for _, pkg := range pkgs {
-			docPkg := doc.New(pkg, dir, 0)
-			cleanedPkg := CopyPackage(docPkg)
-			pkgJSON, err := json.MarshalIndent(cleanedPkg, "", "  ")
-			if err != nil {
-				panic(err)
-			}
-			fmt.Printf("%s\n", pkgJSON)
-		}
+		fmt.Printf("%s\n", pkgJSON)
 	}
 }
