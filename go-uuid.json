@@ -1,0 +1,641 @@
+{
+  "type": "package",
+  "doc": "The uuid package generates and inspects UUIDs.\n\nUUIDs are based on RFC 4122 and DCE 1.1: Authentication and Security Services.\n",
+  "name": "uuid",
+  "importPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+  "imports": [
+    "bytes",
+    "crypto/md5",
+    "crypto/rand",
+    "crypto/sha1",
+    "encoding/binary",
+    "encoding/json",
+    "errors",
+    "flag",
+    "fmt",
+    "hash",
+    "io",
+    "net",
+    "os",
+    "reflect",
+    "runtime",
+    "strings",
+    "sync",
+    "testing",
+    "time"
+  ],
+  "filenames": [
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/dce.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/doc.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/hash.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/json.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/json_test.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/node.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/seq_test.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/time.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/util.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/uuid.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/version1.go",
+    "/Users/austin/go/src/code.google.com/p/go-uuid/uuid/version4.go"
+  ],
+  "notes": {},
+  "bugs": null,
+  "consts": [
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "Domain constants for DCE Security (Version 2) UUIDs.\n",
+      "names": [
+        "Person",
+        "Group",
+        "Org"
+      ],
+      "Decl": null
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "Constants returned by Variant.\n",
+      "names": [
+        "Invalid",
+        "RFC4122",
+        "Reserved",
+        "Microsoft",
+        "Future"
+      ],
+      "Decl": null
+    }
+  ],
+  "types": [
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "A Domain represents a Version 2 domain\n",
+      "name": "Domain",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": [
+        {
+          "doc": "",
+          "name": "String",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "Domain",
+          "orig": "Domain",
+          "Level": 0
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "A Time represents a time as the number of 100's of nanoseconds since 15 Oct\n1582.\n",
+      "name": "Time",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [
+        {
+          "doc": "GetTime returns the current Time (100s of nanoseconds since 15 Oct 1582) and\nclock sequence as well as adjusting the clock sequence as needed.  An error\nis returned if the current time cannot be determined.\n",
+          "name": "GetTime",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        }
+      ],
+      "methods": [
+        {
+          "doc": "UnixTime converts t the number of seconds and nanoseconds using the Unix\nepoch of 1 Jan 1970.\n",
+          "name": "UnixTime",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "Time",
+          "orig": "Time",
+          "Level": 0
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "A UUID is a 128 bit (16 byte) Universal Unique IDentifier as defined in RFC\n4122.\n",
+      "name": "UUID",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [
+        {
+          "doc": "NewDCEGroup returns a DCE Security (Version 2) UUID in the group\ndomain with the id returned by os.Getgid.\n\n NewDCEGroup(Group, uint32(os.Getgid()))\n",
+          "name": "NewDCEGroup",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "NewDCEPerson returns a DCE Security (Version 2) UUID in the person\ndomain with the id returned by os.Getuid.\n\n NewDCEPerson(Person, uint32(os.Getuid()))\n",
+          "name": "NewDCEPerson",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "NewDCESecurity returns a DCE Security (Version 2) UUID.\n\nThe domain should be one of Person, Group or Org.\nOn a POSIX system the id should be the users UID for the Person\ndomain and the users GID for the Group.  The meaning of id for\nthe domain Org or on non-POSIX systems is site defined.\n\nFor a given domain/id pair the same token may be returned for up to\n7 minutes and 10 seconds.\n",
+          "name": "NewDCESecurity",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "NewHash returns a new UUID dervied from the hash of space concatenated with\ndata generated by h.  The hash should be at least 16 byte in length.  The\nfirst 16 bytes of the hash are used to form the UUID.  The version of the\nUUID will be the lower 4 bits of version.  NewHash is used to implement\nNewMD5 and NewSHA1.\n",
+          "name": "NewHash",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "NewMD5 returns a new MD5 (Version 3) UUID based on the\nsupplied name space and data.\n\n NewHash(md5.New(), space, data, 3)\n",
+          "name": "NewMD5",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "Random returns a Random (Version 4) UUID or panics.\n\nThe strength of the UUIDs is based on the strength of the crypto/rand\npackage.\n\nA note about uniqueness derived from from the UUID Wikipedia entry:\n\n Randomly generated UUIDs have 122 random bits.  One's annual risk of being\n hit by a meteorite is estimated to be one chance in 17 billion, that\n means the probability is about 0.00000000006 (6 × 10−11),\n equivalent to the odds of creating a few tens of trillions of UUIDs in a\n year and having one duplicate.\n",
+          "name": "NewRandom",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "NewSHA1 returns a new SHA1 (Version 5) UUID based on the\nsupplied name space and data.\n\n NewHash(sha1.New(), space, data, 5)\n",
+          "name": "NewSHA1",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "NewUUID returns a Version 1 UUID based on the current NodeID and clock\nsequence, and the current time.  If the NodeID has not been set by SetNodeID\nor SetNodeInterface then it will be set automatically.  If the NodeID cannot\nbe set NewUUID returns nil.  If clock sequence has not been set by\nSetClockSequence then it will be set automatically.  If GetTime fails to\nreturn the current NewUUID returns nil.\n",
+          "name": "NewUUID",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        },
+        {
+          "doc": "Parse decodes s into a UUID or returns nil.  Both the UUID form of\nxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx and\nurn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx are decoded.\n",
+          "name": "Parse",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "",
+          "orig": "",
+          "Level": 0
+        }
+      ],
+      "methods": [
+        {
+          "doc": "ClockSequence returns the clock sequence encoded in uuid.  It returns false\nif uuid is not valid.  The clock sequence is only well defined for version 1\nand 2 UUIDs.\n",
+          "name": "ClockSequence",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "Domain returns the domain for a Version 2 UUID or false.\n",
+          "name": "Domain",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "Id returns the id for a Version 2 UUID or false.\n",
+          "name": "Id",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "",
+          "name": "MarshalJSON",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "NodeID returns the 6 byte node id encoded in uuid.  It returns nil if uuid is\nnot valid.  The NodeID is only well defined for version 1 and 2 UUIDs.\n",
+          "name": "NodeID",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "String returns the string form of uuid, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\n, or \"\" if uuid is invalid.\n",
+          "name": "String",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "Time returns the time in 100s of nanoseconds since 15 Oct 1582 encoded in\nuuid.  It returns false if uuid is not valid.  The time is only well defined\nfor version 1 and 2 UUIDs.\n",
+          "name": "Time",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "URN returns the RFC 2141 URN form of uuid,\nurn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,  or \"\" if uuid is invalid.\n",
+          "name": "URN",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "",
+          "name": "UnmarshalJSON",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "*UUID",
+          "orig": "*UUID",
+          "Level": 0
+        },
+        {
+          "doc": "Variant returns the variant encoded in uuid.  It returns Invalid if\nuuid is invalid.\n",
+          "name": "Variant",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        },
+        {
+          "doc": "Version returns the verison of uuid.  It returns false if uuid is not\nvalid.\n",
+          "name": "Version",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "UUID",
+          "orig": "UUID",
+          "Level": 0
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "A Variant represents a UUIDs variant.\n",
+      "name": "Variant",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": [
+        {
+          "doc": "",
+          "name": "String",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "Variant",
+          "orig": "Variant",
+          "Level": 0
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "A Version represents a UUIDs version.\n",
+      "name": "Version",
+      "Decl": null,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": [
+        {
+          "doc": "",
+          "name": "String",
+          "packageName": "uuid",
+          "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+          "Decl": null,
+          "recv": "Version",
+          "orig": "Version",
+          "Level": 0
+        }
+      ]
+    }
+  ],
+  "vars": [
+    {
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "doc": "Well known Name Space IDs and UUIDs\n",
+      "names": [
+        "NameSpace_DNS",
+        "NameSpace_URL",
+        "NameSpace_OID",
+        "NameSpace_X500",
+        "NIL"
+      ],
+      "Decl": null
+    }
+  ],
+  "funcs": [
+    {
+      "doc": "ClockSequence returns the current clock sequence, generating one if not\nalready set.  The clock sequence is only used for Version 1 UUIDs.\n\nThe uuid package does not use global static storage for the clock sequence or\nthe last time a UUID was generated.  Unless SetClockSequence a new random\nclock sequence is generated the first time a clock sequence is requested by\nClockSequence, GetTime, or NewUUID.  (section 4.2.1.1) sequence is generated\nfor\n",
+      "name": "ClockSequence",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "Equal returns true if uuid1 and uuid2 are equal.\n",
+      "name": "Equal",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "New returns a new random (version 4) UUID as a string.  It is a convenience\nfunction for NewRandom().String().\n",
+      "name": "New",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "NodeID returns a slice of a copy of the current Node ID, setting the Node ID\nif not already set.\n",
+      "name": "NodeID",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "NodeInterface returns the name of the interface from which the NodeID was\nderived.  The interface \"user\" is returned if the NodeID was set by\nSetNodeID.\n",
+      "name": "NodeInterface",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "SetClockSeq sets the clock sequence to the lower 14 bits of seq.  Setting to\n-1 causes a new sequence to be generated.\n",
+      "name": "SetClockSequence",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "SetNodeID sets the Node ID to be used for Version 1 UUIDs.  The first 6 bytes\nof id are used.  If id is less than 6 bytes then false is returned and the\nNode ID is not set.\n",
+      "name": "SetNodeID",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "SetNodeInterface selects the hardware address to be used for Version 1 UUIDs.\nIf name is \"\" then the first usable interface found will be used or a random\nNode ID will be generated.  If a named interface cannot be found then false\nis returned.\n\nSetNodeInterface never fails when name is \"\".\n",
+      "name": "SetNodeInterface",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "SetRand sets the random number generator to r, which implents io.Reader.\nIf r.Read returns an error when the package requests random data then\na panic will be issued.\n\nCalling SetRand with nil sets the random number generator to the default\ngenerator.\n",
+      "name": "SetRand",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestBadRand",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestClockSeq",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "TestClockSeqRace tests for a particular race condition of returning two\nidentical Version1 UUIDs.  The duration of 1 minute was chosen as the race\ncondition, before being fixed, nearly always occured in under 30 seconds.\n",
+      "name": "TestClockSeqRace",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestCoding",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestConstants",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestDCE",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestJSON",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestMD5",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestNew",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestNodeAndTime",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestNodeID",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestRandomUUID",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestSHA1",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestUUID",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    },
+    {
+      "doc": "",
+      "name": "TestVersion1",
+      "packageName": "uuid",
+      "packageImportPath": "/Users/austin/go/src/code.google.com/p/go-uuid/uuid",
+      "Decl": null,
+      "recv": "",
+      "orig": "",
+      "Level": 0
+    }
+  ]
+}
