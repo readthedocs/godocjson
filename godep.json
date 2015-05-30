@@ -132,7 +132,7 @@
           "line": 261,
           "parameters": [
             {
-              "type": "",
+              "type": "string",
               "name": "fastRemote"
             },
             {
@@ -231,7 +231,7 @@
           "line": 175,
           "parameters": [
             {
-              "type": "",
+              "type": "string",
               "name": "path"
             }
           ],
@@ -249,7 +249,7 @@
           "line": 52,
           "parameters": [
             {
-              "type": "",
+              "type": "[]*Package",
               "name": "pkgs"
             }
           ],
@@ -265,7 +265,7 @@
           "line": 212,
           "parameters": [
             {
-              "type": "",
+              "type": "io.Writer",
               "name": "w"
             }
           ],
@@ -307,7 +307,7 @@
           "line": 87,
           "parameters": [
             {
-              "type": "",
+              "type": "string",
               "name": "importPath"
             }
           ],
@@ -323,7 +323,7 @@
           "line": 75,
           "parameters": [
             {
-              "type": "",
+              "type": "string",
               "name": "dir"
             },
             {
@@ -345,7 +345,7 @@
           "line": 139,
           "parameters": [
             {
-              "type": "",
+              "type": "string",
               "name": "dir"
             },
             {
@@ -370,7 +370,7 @@
       "line": 34,
       "parameters": [
         {
-          "type": "",
+          "type": "...string",
           "name": "name"
         }
       ],
@@ -386,7 +386,7 @@
       "line": 110,
       "parameters": [
         {
-          "type": "",
+          "type": "[]Dependency",
           "name": "deps"
         }
       ],
@@ -402,11 +402,11 @@
       "line": 148,
       "parameters": [
         {
-          "type": "",
+          "type": "string",
           "name": "path"
         },
         {
-          "type": "",
+          "type": "*Godeps",
           "name": "g"
         }
       ],
@@ -422,7 +422,7 @@
       "line": 5,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -438,7 +438,7 @@
       "line": 26,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -454,7 +454,7 @@
       "line": 82,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -470,7 +470,7 @@
       "line": 62,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -486,7 +486,7 @@
       "line": 1094,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -502,7 +502,7 @@
       "line": 9,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -518,7 +518,7 @@
       "line": 13,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],

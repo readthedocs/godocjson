@@ -176,11 +176,11 @@
           "line": 32,
           "parameters": [
             {
-              "type": "",
+              "type": "Domain",
               "name": "domain"
             },
             {
-              "type": "",
+              "type": "uint32",
               "name": "id"
             }
           ],
@@ -196,19 +196,19 @@
           "line": 27,
           "parameters": [
             {
-              "type": "",
+              "type": "hash.Hash",
               "name": "h"
             },
             {
-              "type": "",
+              "type": "UUID",
               "name": "space"
             },
             {
-              "type": "",
+              "type": "[]byte",
               "name": "data"
             },
             {
-              "type": "",
+              "type": "int",
               "name": "version"
             }
           ],
@@ -224,11 +224,11 @@
           "line": 43,
           "parameters": [
             {
-              "type": "",
+              "type": "UUID",
               "name": "space"
             },
             {
-              "type": "",
+              "type": "[]byte",
               "name": "data"
             }
           ],
@@ -255,11 +255,11 @@
           "line": 51,
           "parameters": [
             {
-              "type": "",
+              "type": "UUID",
               "name": "space"
             },
             {
-              "type": "",
+              "type": "[]byte",
               "name": "data"
             }
           ],
@@ -286,7 +286,7 @@
           "line": 45,
           "parameters": [
             {
-              "type": "",
+              "type": "string",
               "name": "s"
             }
           ],
@@ -392,7 +392,7 @@
           "line": 16,
           "parameters": [
             {
-              "type": "",
+              "type": "[]byte",
               "name": "data"
             }
           ],
@@ -512,7 +512,7 @@
       "line": 74,
       "parameters": [
         {
-          "type": "",
+          "type": "UUID",
           "name": "uuid1"
         },
         {
@@ -565,7 +565,7 @@
       "line": 92,
       "parameters": [
         {
-          "type": "",
+          "type": "int",
           "name": "seq"
         }
       ],
@@ -581,7 +581,7 @@
       "line": 73,
       "parameters": [
         {
-          "type": "",
+          "type": "[]byte",
           "name": "id"
         }
       ],
@@ -597,7 +597,7 @@
       "line": 28,
       "parameters": [
         {
-          "type": "",
+          "type": "string",
           "name": "name"
         }
       ],
@@ -613,7 +613,7 @@
       "line": 157,
       "parameters": [
         {
-          "type": "",
+          "type": "io.Reader",
           "name": "r"
         }
       ],
@@ -629,7 +629,7 @@
       "line": 377,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -645,7 +645,7 @@
       "line": 168,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -661,7 +661,7 @@
       "line": 20,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -677,7 +677,7 @@
       "line": 205,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -693,7 +693,7 @@
       "line": 108,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -709,7 +709,7 @@
       "line": 362,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -725,7 +725,7 @@
       "line": 15,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -741,7 +741,7 @@
       "line": 294,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -757,7 +757,7 @@
       "line": 138,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -773,7 +773,7 @@
       "line": 273,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -789,7 +789,7 @@
       "line": 310,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -805,7 +805,7 @@
       "line": 120,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -821,7 +821,7 @@
       "line": 302,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -837,7 +837,7 @@
       "line": 101,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
@@ -853,7 +853,7 @@
       "line": 228,
       "parameters": [
         {
-          "type": "",
+          "type": "*testing.T",
           "name": "t"
         }
       ],
