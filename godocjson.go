@@ -137,7 +137,7 @@ func processFuncDecl(d *ast.FuncDecl, fun *Func) {
 	fun.Params = make([]FuncParam, d.Type.Params.NumFields())
 	for i, f := range d.Type.Params.List {
 		fun.Params[i] = FuncParam{
-			Type: typeOf(f.Type), // TODO: do a type switch on reflect.TypeOf(f.Type)
+			Type: typeOf(f.Type),
 			Name: f.Names[0].String(),
 		}
 	}
