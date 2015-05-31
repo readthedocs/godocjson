@@ -17,6 +17,7 @@ type Func struct {
 	Name              string      `json:"name"`
 	PackageName       string      `json:"packageName"`
 	PackageImportPath string      `json:"packageImportPath"`
+	Type              string      `json:"type"`
 	Filename          string      `json:"filename"`
 	Line              int         `json:"line"`
 	Params            []FuncParam `json:"parameters"`
@@ -154,6 +155,7 @@ func CopyFuncs(f []*doc.Func, packageName string, packageImportPath string, file
 			Name:              n.Name,
 			PackageName:       packageName,
 			PackageImportPath: packageImportPath,
+			Type:              "func",
 			Orig:              n.Orig,
 			Recv:              n.Recv,
 			Filename:          position.Filename,
@@ -217,6 +219,7 @@ func CopyPackage(pkg *doc.Package, fileSet *token.FileSet) Package {
 			Name:              t.Name,
 			PackageName:       pkg.Name,
 			PackageImportPath: pkg.ImportPath,
+			Type:              "type",
 			Consts:            CopyValues(t.Consts, pkg.Name, pkg.ImportPath, fileSet),
 			Doc:               t.Doc,
 			Funcs:             CopyFuncs(t.Funcs, pkg.Name, pkg.ImportPath, fileSet),
