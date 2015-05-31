@@ -1,225 +1,293 @@
 {
   "type": "package",
-  "doc": "Package uuid provides implementation of Universally Unique Identifier (UUID).\nSupported versions are 1, 3, 4 and 5 (as specified in RFC 4122) and\nversion 2 (as specified in DCE 1.1).\n",
+  "doc": "The uuid package generates and inspects UUIDs.\n\nUUIDs are based on RFC 4122 and DCE 1.1: Authentication and Security Services.\n",
   "name": "uuid",
-  "importPath": "go.uuid/",
+  "importPath": "../../../code.google.com/p/go-uuid/uuid",
   "imports": [
     "bytes",
     "crypto/md5",
     "crypto/rand",
     "crypto/sha1",
     "encoding/binary",
-    "encoding/hex",
+    "encoding/json",
+    "errors",
+    "flag",
     "fmt",
     "hash",
+    "io",
     "net",
     "os",
+    "reflect",
+    "runtime",
+    "strings",
     "sync",
     "testing",
     "time"
   ],
   "filenames": [
-    "go.uuid/benchmarks_test.go",
-    "go.uuid/uuid.go",
-    "go.uuid/uuid_test.go"
+    "../../../code.google.com/p/go-uuid/uuid/dce.go",
+    "../../../code.google.com/p/go-uuid/uuid/doc.go",
+    "../../../code.google.com/p/go-uuid/uuid/hash.go",
+    "../../../code.google.com/p/go-uuid/uuid/json.go",
+    "../../../code.google.com/p/go-uuid/uuid/json_test.go",
+    "../../../code.google.com/p/go-uuid/uuid/node.go",
+    "../../../code.google.com/p/go-uuid/uuid/seq_test.go",
+    "../../../code.google.com/p/go-uuid/uuid/time.go",
+    "../../../code.google.com/p/go-uuid/uuid/util.go",
+    "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+    "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+    "../../../code.google.com/p/go-uuid/uuid/version1.go",
+    "../../../code.google.com/p/go-uuid/uuid/version4.go"
   ],
   "notes": {},
   "bugs": null,
   "consts": [
     {
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "doc": "UUID layout variants.\n",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "Domain constants for DCE Security (Version 2) UUIDs.\n",
       "names": [
-        "VariantNCS",
-        "VariantRFC4122",
-        "VariantMicrosoft",
-        "VariantFuture"
+        "Person",
+        "Group",
+        "Org"
       ],
       "type": "const",
-      "filename": "go.uuid/uuid.go",
-      "line": 43
+      "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
+      "line": 17
     },
     {
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "doc": "UUID DCE domains.\n",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "Constants returned by Variant.\n",
       "names": [
-        "DomainPerson",
-        "DomainGroup",
-        "DomainOrg"
+        "Invalid",
+        "RFC4122",
+        "Reserved",
+        "Microsoft",
+        "Future"
       ],
       "type": "const",
-      "filename": "go.uuid/uuid.go",
-      "line": 51
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+      "line": 26
     }
   ],
   "types": [
     {
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "doc": "UUID representation compliant with specification\ndescribed in RFC 4122.\n",
-      "name": "UUID",
-      "type": "type",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "A Domain represents a Version 2 domain\n",
+      "name": "Domain",
+      "type": "",
+      "filename": "",
+      "line": 0,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": [
+        {
+          "doc": "",
+          "name": "String",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
+          "line": 74,
+          "parameters": [],
+          "recv": "Domain",
+          "orig": "Domain"
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "A Time represents a time as the number of 100's of nanoseconds since 15 Oct\n1582.\n",
+      "name": "Time",
+      "type": "",
       "filename": "",
       "line": 0,
       "consts": [],
       "vars": [],
       "funcs": [
         {
-          "doc": "And returns result of binary AND of two UUIDs.\n",
-          "name": "And",
+          "doc": "GetTime returns the current Time (100s of nanoseconds since 15 Oct 1582) and\nclock sequence as well as adjusting the clock sequence as needed.  An error\nis returned if the current time cannot be determined.\n",
+          "name": "GetTime",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 132,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
+          "line": 45,
+          "parameters": [],
+          "recv": "",
+          "orig": ""
+        }
+      ],
+      "methods": [
+        {
+          "doc": "UnixTime converts t the number of seconds and nanoseconds using the Unix\nepoch of 1 Jan 1970.\n",
+          "name": "UnixTime",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
+          "line": 35,
+          "parameters": [],
+          "recv": "Time",
+          "orig": "Time"
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "A UUID is a 128 bit (16 byte) Universal Unique IDentifier as defined in RFC\n4122.\n",
+      "name": "UUID",
+      "type": "",
+      "filename": "",
+      "line": 0,
+      "consts": [],
+      "vars": [],
+      "funcs": [
+        {
+          "doc": "NewDCEGroup returns a DCE Security (Version 2) UUID in the group\ndomain with the id returned by os.Getgid.\n\n NewDCEGroup(Group, uint32(os.Getgid()))\n",
+          "name": "NewDCEGroup",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
+          "line": 54,
+          "parameters": [],
+          "recv": "",
+          "orig": ""
+        },
+        {
+          "doc": "NewDCEPerson returns a DCE Security (Version 2) UUID in the person\ndomain with the id returned by os.Getuid.\n\n NewDCEPerson(Person, uint32(os.Getuid()))\n",
+          "name": "NewDCEPerson",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
+          "line": 46,
+          "parameters": [],
+          "recv": "",
+          "orig": ""
+        },
+        {
+          "doc": "NewDCESecurity returns a DCE Security (Version 2) UUID.\n\nThe domain should be one of Person, Group or Org.\nOn a POSIX system the id should be the users UID for the Person\ndomain and the users GID for the Group.  The meaning of id for\nthe domain Org or on non-POSIX systems is site defined.\n\nFor a given domain/id pair the same token may be returned for up to\n7 minutes and 10 seconds.\n",
+          "name": "NewDCESecurity",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
+          "line": 32,
           "parameters": [
             {
-              "type": "UUID",
-              "name": "u1"
+              "type": "Domain",
+              "name": "domain"
             },
             {
-              "type": "UUID",
-              "name": "u2"
+              "type": "uint32",
+              "name": "id"
             }
           ],
           "recv": "",
           "orig": ""
         },
         {
-          "doc": "FromBytes returns UUID converted from raw byte slice input.\nIt will return error if the slice isn't 16 bytes long.\n",
-          "name": "FromBytes",
+          "doc": "NewHash returns a new UUID dervied from the hash of space concatenated with\ndata generated by h.  The hash should be at least 16 byte in length.  The\nfirst 16 bytes of the hash are used to form the UUID.  The version of the\nUUID will be the lower 4 bits of version.  NewHash is used to implement\nNewMD5 and NewSHA1.\n",
+          "name": "NewHash",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 287,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
+          "line": 27,
           "parameters": [
+            {
+              "type": "hash.Hash",
+              "name": "h"
+            },
+            {
+              "type": "UUID",
+              "name": "space"
+            },
             {
               "type": "[]byte",
-              "name": "input"
+              "name": "data"
+            },
+            {
+              "type": "int",
+              "name": "version"
             }
           ],
           "recv": "",
           "orig": ""
         },
         {
-          "doc": "FromString returns UUID parsed from string input.\nInput is expected in a form accepted by UnmarshalText.\n",
-          "name": "FromString",
+          "doc": "NewMD5 returns a new MD5 (Version 3) UUID based on the\nsupplied name space and data.\n\n NewHash(md5.New(), space, data, 3)\n",
+          "name": "NewMD5",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 294,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
+          "line": 43,
           "parameters": [
             {
-              "type": "string",
-              "name": "input"
+              "type": "UUID",
+              "name": "space"
+            },
+            {
+              "type": "[]byte",
+              "name": "data"
             }
           ],
           "recv": "",
           "orig": ""
         },
         {
-          "doc": "NewV1 returns UUID based on current timestamp and MAC address.\n",
-          "name": "NewV1",
+          "doc": "Random returns a Random (Version 4) UUID or panics.\n\nThe strength of the UUIDs is based on the strength of the crypto/rand\npackage.\n\nA note about uniqueness derived from from the UUID Wikipedia entry:\n\n Randomly generated UUIDs have 122 random bits.  One's annual risk of being\n hit by a meteorite is estimated to be one chance in 17 billion, that\n means the probability is about 0.00000000006 (6 × 10−11),\n equivalent to the odds of creating a few tens of trillions of UUIDs in a\n year and having one duplicate.\n",
+          "name": "NewRandom",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 317,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/version4.go",
+          "line": 19,
           "parameters": [],
           "recv": "",
           "orig": ""
         },
         {
-          "doc": "NewV2 returns DCE Security UUID based on POSIX UID/GID.\n",
-          "name": "NewV2",
+          "doc": "NewSHA1 returns a new SHA1 (Version 5) UUID based on the\nsupplied name space and data.\n\n NewHash(sha1.New(), space, data, 5)\n",
+          "name": "NewSHA1",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 336,
-          "parameters": [
-            {
-              "type": "byte",
-              "name": "domain"
-            }
-          ],
-          "recv": "",
-          "orig": ""
-        },
-        {
-          "doc": "NewV3 returns UUID based on MD5 hash of namespace UUID and name.\n",
-          "name": "NewV3",
-          "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 362,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
+          "line": 51,
           "parameters": [
             {
               "type": "UUID",
-              "name": "ns"
+              "name": "space"
             },
             {
-              "type": "string",
-              "name": "name"
+              "type": "[]byte",
+              "name": "data"
             }
           ],
           "recv": "",
           "orig": ""
         },
         {
-          "doc": "NewV4 returns random generated UUID.\n",
-          "name": "NewV4",
+          "doc": "NewUUID returns a Version 1 UUID based on the current NodeID and clock\nsequence, and the current time.  If the NodeID has not been set by SetNodeID\nor SetNodeInterface then it will be set automatically.  If the NodeID cannot\nbe set NewUUID returns nil.  If clock sequence has not been set by\nSetClockSequence then it will be set automatically.  If GetTime fails to\nreturn the current NewUUID returns nil.\n",
+          "name": "NewUUID",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 371,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/version1.go",
+          "line": 17,
           "parameters": [],
           "recv": "",
           "orig": ""
         },
         {
-          "doc": "NewV5 returns UUID based on SHA-1 hash of namespace UUID and name.\n",
-          "name": "NewV5",
+          "doc": "Parse decodes s into a UUID or returns nil.  Both the UUID form of\nxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx and\nurn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx are decoded.\n",
+          "name": "Parse",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 381,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+          "line": 45,
           "parameters": [
-            {
-              "type": "UUID",
-              "name": "ns"
-            },
             {
               "type": "string",
-              "name": "name"
-            }
-          ],
-          "recv": "",
-          "orig": ""
-        },
-        {
-          "doc": "Or returns result of binary OR of two UUIDs.\n",
-          "name": "Or",
-          "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 141,
-          "parameters": [
-            {
-              "type": "UUID",
-              "name": "u1"
-            },
-            {
-              "type": "UUID",
-              "name": "u2"
+              "name": "s"
             }
           ],
           "recv": "",
@@ -228,107 +296,100 @@
       ],
       "methods": [
         {
-          "doc": "Bytes returns bytes slice representation of UUID.\n",
-          "name": "Bytes",
+          "doc": "ClockSequence returns the clock sequence encoded in uuid.  It returns false\nif uuid is not valid.  The clock sequence is only well defined for version 1\nand 2 UUIDs.\n",
+          "name": "ClockSequence",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 173,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
+          "line": 127,
           "parameters": [],
           "recv": "UUID",
           "orig": "UUID"
         },
         {
-          "doc": "MarshalBinary implements the encoding.BinaryMarshaler interface.\n",
-          "name": "MarshalBinary",
+          "doc": "Domain returns the domain for a Version 2 UUID or false.\n",
+          "name": "Domain",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 250,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
+          "line": 59,
           "parameters": [],
           "recv": "UUID",
           "orig": "UUID"
         },
         {
-          "doc": "MarshalText implements the encoding.TextMarshaler interface.\nThe encoding is the same as returned by String.\n",
-          "name": "MarshalText",
+          "doc": "Id returns the id for a Version 2 UUID or false.\n",
+          "name": "Id",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 207,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
+          "line": 67,
           "parameters": [],
           "recv": "UUID",
           "orig": "UUID"
         },
         {
-          "doc": "Scan implements the sql.Scanner interface.\nA 16-byte slice is handled by UnmarshalBinary, while\na longer byte slice or a string is handled by UnmarshalText.\n",
-          "name": "Scan",
+          "doc": "",
+          "name": "MarshalJSON",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 270,
-          "parameters": [
-            {
-              "type": "interface{}",
-              "name": "src"
-            }
-          ],
-          "recv": "*UUID",
-          "orig": "*UUID"
-        },
-        {
-          "doc": "SetVariant sets variant bits as described in RFC 4122.\n",
-          "name": "SetVariant",
-          "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 201,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/json.go",
+          "line": 9,
           "parameters": [],
-          "recv": "*UUID",
-          "orig": "*UUID"
+          "recv": "UUID",
+          "orig": "UUID"
         },
         {
-          "doc": "SetVersion sets version bits.\n",
-          "name": "SetVersion",
+          "doc": "NodeID returns the 6 byte node id encoded in uuid.  It returns nil if uuid is\nnot valid.  The NodeID is only well defined for version 1 and 2 UUIDs.\n",
+          "name": "NodeID",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 196,
-          "parameters": [
-            {
-              "type": "byte",
-              "name": "v"
-            }
-          ],
-          "recv": "*UUID",
-          "orig": "*UUID"
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
+          "line": 94,
+          "parameters": [],
+          "recv": "UUID",
+          "orig": "UUID"
         },
         {
-          "doc": "Returns canonical string representation of UUID:\nxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.\n",
+          "doc": "String returns the string form of uuid, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\n, or \"\" if uuid is invalid.\n",
           "name": "String",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 179,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+          "line": 80,
           "parameters": [],
           "recv": "UUID",
           "orig": "UUID"
         },
         {
-          "doc": "UnmarshalBinary implements the encoding.BinaryUnmarshaler interface.\nIt will return error if the slice isn't 16 bytes long.\n",
-          "name": "UnmarshalBinary",
+          "doc": "Time returns the time in 100s of nanoseconds since 15 Oct 1582 encoded in\nuuid.  It returns false if uuid is not valid.  The time is only well defined\nfor version 1 and 2 UUIDs.\n",
+          "name": "Time",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 257,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
+          "line": 114,
+          "parameters": [],
+          "recv": "UUID",
+          "orig": "UUID"
+        },
+        {
+          "doc": "URN returns the RFC 2141 URN form of uuid,\nurn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,  or \"\" if uuid is invalid.\n",
+          "name": "URN",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+          "line": 91,
+          "parameters": [],
+          "recv": "UUID",
+          "orig": "UUID"
+        },
+        {
+          "doc": "",
+          "name": "UnmarshalJSON",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/json.go",
+          "line": 16,
           "parameters": [
             {
               "type": "[]byte",
@@ -339,45 +400,76 @@
           "orig": "*UUID"
         },
         {
-          "doc": "UnmarshalText implements the encoding.TextUnmarshaler interface.\nFollowing formats are supported:\n\"6ba7b810-9dad-11d1-80b4-00c04fd430c8\",\n\"{6ba7b810-9dad-11d1-80b4-00c04fd430c8}\",\n\"urn:uuid:6ba7b810-9dad-11d1-80b4-00c04fd430c8\"\n",
-          "name": "UnmarshalText",
-          "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 217,
-          "parameters": [
-            {
-              "type": "[]byte",
-              "name": "text"
-            }
-          ],
-          "recv": "*UUID",
-          "orig": "*UUID"
-        },
-        {
-          "doc": "Variant returns UUID layout variant.\n",
+          "doc": "Variant returns the variant encoded in uuid.  It returns Invalid if\nuuid is invalid.\n",
           "name": "Variant",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 160,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+          "line": 102,
           "parameters": [],
           "recv": "UUID",
           "orig": "UUID"
         },
         {
-          "doc": "Version returns algorithm version used to generate UUID.\n",
+          "doc": "Version returns the verison of uuid.  It returns false if uuid is not\nvalid.\n",
           "name": "Version",
           "packageName": "uuid",
-          "packageImportPath": "go.uuid/",
-          "type": "func",
-          "filename": "go.uuid/uuid.go",
-          "line": 155,
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+          "line": 121,
           "parameters": [],
           "recv": "UUID",
           "orig": "UUID"
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "A Variant represents a UUIDs variant.\n",
+      "name": "Variant",
+      "type": "",
+      "filename": "",
+      "line": 0,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": [
+        {
+          "doc": "",
+          "name": "String",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+          "line": 135,
+          "parameters": [],
+          "recv": "Variant",
+          "orig": "Variant"
+        }
+      ]
+    },
+    {
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "A Version represents a UUIDs version.\n",
+      "name": "Version",
+      "type": "",
+      "filename": "",
+      "line": 0,
+      "consts": [],
+      "vars": [],
+      "funcs": [],
+      "methods": [
+        {
+          "doc": "",
+          "name": "String",
+          "packageName": "uuid",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+          "line": 128,
+          "parameters": [],
+          "recv": "Version",
+          "orig": "Version"
         }
       ]
     }
@@ -385,285 +477,144 @@
   "vars": [
     {
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "doc": "Predefined namespace UUIDs.\n",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "doc": "Well known Name Space IDs and UUIDs\n",
       "names": [
-        "NamespaceDNS",
-        "NamespaceURL",
-        "NamespaceOID",
-        "NamespaceX500"
+        "NameSpace_DNS",
+        "NameSpace_URL",
+        "NameSpace_OID",
+        "NameSpace_X500",
+        "NIL"
       ],
       "type": "var",
-      "filename": "go.uuid/uuid.go",
-      "line": 124
-    },
-    {
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "doc": "The nil UUID is special form of UUID that is specified to have all\n128 bits set to zero.\n",
-      "names": [
-        "Nil"
-      ],
-      "type": "var",
-      "filename": "go.uuid/uuid.go",
-      "line": 121
+      "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
+      "line": 14
     }
   ],
   "funcs": [
     {
-      "doc": "",
-      "name": "BenchmarkFromBytes",
+      "doc": "ClockSequence returns the current clock sequence, generating one if not\nalready set.  The clock sequence is only used for Version 1 UUIDs.\n\nThe uuid package does not use global static storage for the clock sequence or\nthe last time a UUID was generated.  Unless SetClockSequence a new random\nclock sequence is generated the first time a clock sequence is requested by\nClockSequence, GetTime, or NewUUID.  (section 4.2.1.1) sequence is generated\nfor\n",
+      "name": "ClockSequence",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 28,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
+      "line": 77,
+      "parameters": [],
       "recv": "",
       "orig": ""
     },
     {
-      "doc": "",
-      "name": "BenchmarkFromString",
+      "doc": "Equal returns true if uuid1 and uuid2 are equal.\n",
+      "name": "Equal",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 35,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkFromStringUrn",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 42,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkFromStringWithBrackets",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 49,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkMarshalBinary",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 86,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkMarshalText",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 93,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkMarshalToString",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 116,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkNewV1",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 56,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkNewV2",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 62,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkNewV3",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 68,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkNewV4",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
       "line": 74,
       "parameters": [
         {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkNewV5",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 80,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkUnmarshalBinary",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 100,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "BenchmarkUnmarshalText",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/benchmarks_test.go",
-      "line": 108,
-      "parameters": [
-        {
-          "type": "*testing.B",
-          "name": "b"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "Equal returns true if u1 and u2 equals, otherwise returns false.\n",
-      "name": "Equal",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid.go",
-      "line": 150,
-      "parameters": [
-        {
           "type": "UUID",
-          "name": "u1"
+          "name": "uuid1"
         },
         {
           "type": "UUID",
-          "name": "u2"
+          "name": "uuid2"
+        }
+      ],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "New returns a new random (version 4) UUID as a string.  It is a convenience\nfunction for NewRandom().String().\n",
+      "name": "New",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+      "line": 38,
+      "parameters": [],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "NodeID returns a slice of a copy of the current Node ID, setting the Node ID\nif not already set.\n",
+      "name": "NodeID",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
+      "line": 61,
+      "parameters": [],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "NodeInterface returns the name of the interface from which the NodeID was\nderived.  The interface \"user\" is returned if the NodeID was set by\nSetNodeID.\n",
+      "name": "NodeInterface",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
+      "line": 18,
+      "parameters": [],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "SetClockSeq sets the clock sequence to the lower 14 bits of seq.  Setting to\n-1 causes a new sequence to be generated.\n",
+      "name": "SetClockSequence",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
+      "line": 92,
+      "parameters": [
+        {
+          "type": "int",
+          "name": "seq"
+        }
+      ],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "SetNodeID sets the Node ID to be used for Version 1 UUIDs.  The first 6 bytes\nof id are used.  If id is less than 6 bytes then false is returned and the\nNode ID is not set.\n",
+      "name": "SetNodeID",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
+      "line": 73,
+      "parameters": [
+        {
+          "type": "[]byte",
+          "name": "id"
+        }
+      ],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "SetNodeInterface selects the hardware address to be used for Version 1 UUIDs.\nIf name is \"\" then the first usable interface found will be used or a random\nNode ID will be generated.  If a named interface cannot be found then false\nis returned.\n\nSetNodeInterface never fails when name is \"\".\n",
+      "name": "SetNodeInterface",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
+      "line": 28,
+      "parameters": [
+        {
+          "type": "string",
+          "name": "name"
+        }
+      ],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "SetRand sets the random number generator to r, which implents io.Reader.\nIf r.Read returns an error when the package requests random data then\na panic will be issued.\n\nCalling SetRand with nil sets the random number generator to the default\ngenerator.\n",
+      "name": "SetRand",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+      "line": 157,
+      "parameters": [
+        {
+          "type": "io.Reader",
+          "name": "r"
         }
       ],
       "recv": "",
@@ -671,12 +622,11 @@
     },
     {
       "doc": "",
-      "name": "TestAnd",
+      "name": "TestBadRand",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 66,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 377,
       "parameters": [
         {
           "type": "*testing.T",
@@ -688,12 +638,27 @@
     },
     {
       "doc": "",
-      "name": "TestBytes",
+      "name": "TestClockSeq",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 29,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 168,
+      "parameters": [
+        {
+          "type": "*testing.T",
+          "name": "t"
+        }
+      ],
+      "recv": "",
+      "orig": ""
+    },
+    {
+      "doc": "TestClockSeqRace tests for a particular race condition of returning two\nidentical Version1 UUIDs.  The duration of 1 minute was chosen as the race\ncondition, before being fixed, nearly always occured in under 30 seconds.\n",
+      "name": "TestClockSeqRace",
+      "packageName": "uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/seq_test.go",
+      "line": 20,
       "parameters": [
         {
           "type": "*testing.T",
@@ -705,12 +670,11 @@
     },
     {
       "doc": "",
-      "name": "TestEqual",
+      "name": "TestCoding",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 45,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 205,
       "parameters": [
         {
           "type": "*testing.T",
@@ -722,12 +686,11 @@
     },
     {
       "doc": "",
-      "name": "TestFromBytes",
+      "name": "TestConstants",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 129,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 108,
       "parameters": [
         {
           "type": "*testing.T",
@@ -739,12 +702,11 @@
     },
     {
       "doc": "",
-      "name": "TestFromString",
+      "name": "TestDCE",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 187,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 362,
       "parameters": [
         {
           "type": "*testing.T",
@@ -756,12 +718,11 @@
     },
     {
       "doc": "",
-      "name": "TestMarshalBinary",
+      "name": "TestJSON",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 150,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/json_test.go",
+      "line": 15,
       "parameters": [
         {
           "type": "*testing.T",
@@ -773,12 +734,11 @@
     },
     {
       "doc": "",
-      "name": "TestMarshalText",
+      "name": "TestMD5",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 227,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 294,
       "parameters": [
         {
           "type": "*testing.T",
@@ -790,12 +750,11 @@
     },
     {
       "doc": "",
-      "name": "TestNewV1",
+      "name": "TestNew",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 342,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 138,
       "parameters": [
         {
           "type": "*testing.T",
@@ -807,12 +766,11 @@
     },
     {
       "doc": "",
-      "name": "TestNewV2",
+      "name": "TestNodeAndTime",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 373,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 273,
       "parameters": [
         {
           "type": "*testing.T",
@@ -824,113 +782,10 @@
     },
     {
       "doc": "",
-      "name": "TestNewV3",
+      "name": "TestNodeID",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 395,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestNewV4",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 433,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestNewV5",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 445,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestOr",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 55,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestScanBinary",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 264,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestScanString",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 287,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestScanText",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 310,
       "parameters": [
         {
@@ -943,28 +798,10 @@
     },
     {
       "doc": "",
-      "name": "TestScanUnsupported",
+      "name": "TestRandomUUID",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 333,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestSetVariant",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 120,
       "parameters": [
         {
@@ -977,12 +814,11 @@
     },
     {
       "doc": "",
-      "name": "TestSetVersion",
+      "name": "TestSHA1",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 85,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 302,
       "parameters": [
         {
           "type": "*testing.T",
@@ -994,12 +830,11 @@
     },
     {
       "doc": "",
-      "name": "TestString",
+      "name": "TestUUID",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 39,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 101,
       "parameters": [
         {
           "type": "*testing.T",
@@ -1011,63 +846,11 @@
     },
     {
       "doc": "",
-      "name": "TestUnmarshalBinary",
+      "name": "TestVersion1",
       "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 164,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestUnmarshalText",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 241,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestVariant",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 94,
-      "parameters": [
-        {
-          "type": "*testing.T",
-          "name": "t"
-        }
-      ],
-      "recv": "",
-      "orig": ""
-    },
-    {
-      "doc": "",
-      "name": "TestVersion",
-      "packageName": "uuid",
-      "packageImportPath": "go.uuid/",
-      "type": "func",
-      "filename": "go.uuid/uuid_test.go",
-      "line": 77,
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "line": 228,
       "parameters": [
         {
           "type": "*testing.T",
