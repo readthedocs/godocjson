@@ -2,7 +2,7 @@
   "type": "package",
   "doc": "The uuid package generates and inspects UUIDs.\n\nUUIDs are based on RFC 4122 and DCE 1.1: Authentication and Security Services.\n",
   "name": "uuid",
-  "importPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+  "importPath": "../../../code.google.com/p/go-uuid/uuid",
   "imports": [
     "bytes",
     "crypto/md5",
@@ -25,26 +25,26 @@
     "time"
   ],
   "filenames": [
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/doc.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/hash.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/json.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/json_test.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/node.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/seq_test.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/time.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/util.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/version1.go",
-    "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/version4.go"
+    "../../../code.google.com/p/go-uuid/uuid/dce.go",
+    "../../../code.google.com/p/go-uuid/uuid/doc.go",
+    "../../../code.google.com/p/go-uuid/uuid/hash.go",
+    "../../../code.google.com/p/go-uuid/uuid/json.go",
+    "../../../code.google.com/p/go-uuid/uuid/json_test.go",
+    "../../../code.google.com/p/go-uuid/uuid/node.go",
+    "../../../code.google.com/p/go-uuid/uuid/seq_test.go",
+    "../../../code.google.com/p/go-uuid/uuid/time.go",
+    "../../../code.google.com/p/go-uuid/uuid/util.go",
+    "../../../code.google.com/p/go-uuid/uuid/uuid.go",
+    "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
+    "../../../code.google.com/p/go-uuid/uuid/version1.go",
+    "../../../code.google.com/p/go-uuid/uuid/version4.go"
   ],
   "notes": {},
   "bugs": null,
   "consts": [
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "Domain constants for DCE Security (Version 2) UUIDs.\n",
       "names": [
         "Person",
@@ -52,12 +52,12 @@
         "Org"
       ],
       "type": "const",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
       "line": 17
     },
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "Constants returned by Variant.\n",
       "names": [
         "Invalid",
@@ -67,14 +67,14 @@
         "Future"
       ],
       "type": "const",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
       "line": 26
     }
   ],
   "types": [
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "A Domain represents a Version 2 domain\n",
       "name": "Domain",
       "type": "",
@@ -88,8 +88,8 @@
           "doc": "",
           "name": "String",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
           "line": 74,
           "parameters": [],
           "recv": "Domain",
@@ -99,7 +99,7 @@
     },
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "A Time represents a time as the number of 100's of nanoseconds since 15 Oct\n1582.\n",
       "name": "Time",
       "type": "",
@@ -112,8 +112,8 @@
           "doc": "GetTime returns the current Time (100s of nanoseconds since 15 Oct 1582) and\nclock sequence as well as adjusting the clock sequence as needed.  An error\nis returned if the current time cannot be determined.\n",
           "name": "GetTime",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/time.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
           "line": 45,
           "parameters": [],
           "recv": "",
@@ -125,8 +125,8 @@
           "doc": "UnixTime converts t the number of seconds and nanoseconds using the Unix\nepoch of 1 Jan 1970.\n",
           "name": "UnixTime",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/time.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
           "line": 35,
           "parameters": [],
           "recv": "Time",
@@ -136,7 +136,7 @@
     },
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "A UUID is a 128 bit (16 byte) Universal Unique IDentifier as defined in RFC\n4122.\n",
       "name": "UUID",
       "type": "",
@@ -149,8 +149,8 @@
           "doc": "NewDCEGroup returns a DCE Security (Version 2) UUID in the group\ndomain with the id returned by os.Getgid.\n\n NewDCEGroup(Group, uint32(os.Getgid()))\n",
           "name": "NewDCEGroup",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
           "line": 54,
           "parameters": [],
           "recv": "",
@@ -160,8 +160,8 @@
           "doc": "NewDCEPerson returns a DCE Security (Version 2) UUID in the person\ndomain with the id returned by os.Getuid.\n\n NewDCEPerson(Person, uint32(os.Getuid()))\n",
           "name": "NewDCEPerson",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
           "line": 46,
           "parameters": [],
           "recv": "",
@@ -171,8 +171,8 @@
           "doc": "NewDCESecurity returns a DCE Security (Version 2) UUID.\n\nThe domain should be one of Person, Group or Org.\nOn a POSIX system the id should be the users UID for the Person\ndomain and the users GID for the Group.  The meaning of id for\nthe domain Org or on non-POSIX systems is site defined.\n\nFor a given domain/id pair the same token may be returned for up to\n7 minutes and 10 seconds.\n",
           "name": "NewDCESecurity",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
           "line": 32,
           "parameters": [
             {
@@ -191,8 +191,8 @@
           "doc": "NewHash returns a new UUID dervied from the hash of space concatenated with\ndata generated by h.  The hash should be at least 16 byte in length.  The\nfirst 16 bytes of the hash are used to form the UUID.  The version of the\nUUID will be the lower 4 bits of version.  NewHash is used to implement\nNewMD5 and NewSHA1.\n",
           "name": "NewHash",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/hash.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
           "line": 27,
           "parameters": [
             {
@@ -219,8 +219,8 @@
           "doc": "NewMD5 returns a new MD5 (Version 3) UUID based on the\nsupplied name space and data.\n\n NewHash(md5.New(), space, data, 3)\n",
           "name": "NewMD5",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/hash.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
           "line": 43,
           "parameters": [
             {
@@ -239,8 +239,8 @@
           "doc": "Random returns a Random (Version 4) UUID or panics.\n\nThe strength of the UUIDs is based on the strength of the crypto/rand\npackage.\n\nA note about uniqueness derived from from the UUID Wikipedia entry:\n\n Randomly generated UUIDs have 122 random bits.  One's annual risk of being\n hit by a meteorite is estimated to be one chance in 17 billion, that\n means the probability is about 0.00000000006 (6 × 10−11),\n equivalent to the odds of creating a few tens of trillions of UUIDs in a\n year and having one duplicate.\n",
           "name": "NewRandom",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/version4.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/version4.go",
           "line": 19,
           "parameters": [],
           "recv": "",
@@ -250,8 +250,8 @@
           "doc": "NewSHA1 returns a new SHA1 (Version 5) UUID based on the\nsupplied name space and data.\n\n NewHash(sha1.New(), space, data, 5)\n",
           "name": "NewSHA1",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/hash.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
           "line": 51,
           "parameters": [
             {
@@ -270,8 +270,8 @@
           "doc": "NewUUID returns a Version 1 UUID based on the current NodeID and clock\nsequence, and the current time.  If the NodeID has not been set by SetNodeID\nor SetNodeInterface then it will be set automatically.  If the NodeID cannot\nbe set NewUUID returns nil.  If clock sequence has not been set by\nSetClockSequence then it will be set automatically.  If GetTime fails to\nreturn the current NewUUID returns nil.\n",
           "name": "NewUUID",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/version1.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/version1.go",
           "line": 17,
           "parameters": [],
           "recv": "",
@@ -281,8 +281,8 @@
           "doc": "Parse decodes s into a UUID or returns nil.  Both the UUID form of\nxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx and\nurn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx are decoded.\n",
           "name": "Parse",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
           "line": 45,
           "parameters": [
             {
@@ -299,8 +299,8 @@
           "doc": "ClockSequence returns the clock sequence encoded in uuid.  It returns false\nif uuid is not valid.  The clock sequence is only well defined for version 1\nand 2 UUIDs.\n",
           "name": "ClockSequence",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/time.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
           "line": 127,
           "parameters": [],
           "recv": "UUID",
@@ -310,8 +310,8 @@
           "doc": "Domain returns the domain for a Version 2 UUID or false.\n",
           "name": "Domain",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
           "line": 59,
           "parameters": [],
           "recv": "UUID",
@@ -321,8 +321,8 @@
           "doc": "Id returns the id for a Version 2 UUID or false.\n",
           "name": "Id",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/dce.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/dce.go",
           "line": 67,
           "parameters": [],
           "recv": "UUID",
@@ -332,8 +332,8 @@
           "doc": "",
           "name": "MarshalJSON",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/json.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/json.go",
           "line": 9,
           "parameters": [],
           "recv": "UUID",
@@ -343,8 +343,8 @@
           "doc": "NodeID returns the 6 byte node id encoded in uuid.  It returns nil if uuid is\nnot valid.  The NodeID is only well defined for version 1 and 2 UUIDs.\n",
           "name": "NodeID",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/node.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
           "line": 94,
           "parameters": [],
           "recv": "UUID",
@@ -354,8 +354,8 @@
           "doc": "String returns the string form of uuid, xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\n, or \"\" if uuid is invalid.\n",
           "name": "String",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
           "line": 80,
           "parameters": [],
           "recv": "UUID",
@@ -365,8 +365,8 @@
           "doc": "Time returns the time in 100s of nanoseconds since 15 Oct 1582 encoded in\nuuid.  It returns false if uuid is not valid.  The time is only well defined\nfor version 1 and 2 UUIDs.\n",
           "name": "Time",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/time.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
           "line": 114,
           "parameters": [],
           "recv": "UUID",
@@ -376,8 +376,8 @@
           "doc": "URN returns the RFC 2141 URN form of uuid,\nurn:uuid:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx,  or \"\" if uuid is invalid.\n",
           "name": "URN",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
           "line": 91,
           "parameters": [],
           "recv": "UUID",
@@ -387,8 +387,8 @@
           "doc": "",
           "name": "UnmarshalJSON",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/json.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/json.go",
           "line": 16,
           "parameters": [
             {
@@ -403,8 +403,8 @@
           "doc": "Variant returns the variant encoded in uuid.  It returns Invalid if\nuuid is invalid.\n",
           "name": "Variant",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
           "line": 102,
           "parameters": [],
           "recv": "UUID",
@@ -414,8 +414,8 @@
           "doc": "Version returns the verison of uuid.  It returns false if uuid is not\nvalid.\n",
           "name": "Version",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
           "line": 121,
           "parameters": [],
           "recv": "UUID",
@@ -425,7 +425,7 @@
     },
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "A Variant represents a UUIDs variant.\n",
       "name": "Variant",
       "type": "",
@@ -439,8 +439,8 @@
           "doc": "",
           "name": "String",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
           "line": 135,
           "parameters": [],
           "recv": "Variant",
@@ -450,7 +450,7 @@
     },
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "A Version represents a UUIDs version.\n",
       "name": "Version",
       "type": "",
@@ -464,8 +464,8 @@
           "doc": "",
           "name": "String",
           "packageName": "uuid",
-          "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-          "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+          "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+          "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
           "line": 128,
           "parameters": [],
           "recv": "Version",
@@ -477,7 +477,7 @@
   "vars": [
     {
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
       "doc": "Well known Name Space IDs and UUIDs\n",
       "names": [
         "NameSpace_DNS",
@@ -487,7 +487,7 @@
         "NIL"
       ],
       "type": "var",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/hash.go",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/hash.go",
       "line": 14
     }
   ],
@@ -496,8 +496,8 @@
       "doc": "ClockSequence returns the current clock sequence, generating one if not\nalready set.  The clock sequence is only used for Version 1 UUIDs.\n\nThe uuid package does not use global static storage for the clock sequence or\nthe last time a UUID was generated.  Unless SetClockSequence a new random\nclock sequence is generated the first time a clock sequence is requested by\nClockSequence, GetTime, or NewUUID.  (section 4.2.1.1) sequence is generated\nfor\n",
       "name": "ClockSequence",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/time.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
       "line": 77,
       "parameters": [],
       "recv": "",
@@ -507,8 +507,8 @@
       "doc": "Equal returns true if uuid1 and uuid2 are equal.\n",
       "name": "Equal",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
       "line": 74,
       "parameters": [
         {
@@ -516,8 +516,8 @@
           "name": "uuid1"
         },
         {
-          "type": "",
-          "name": ""
+          "type": "UUID",
+          "name": "uuid2"
         }
       ],
       "recv": "",
@@ -527,8 +527,8 @@
       "doc": "New returns a new random (version 4) UUID as a string.  It is a convenience\nfunction for NewRandom().String().\n",
       "name": "New",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
       "line": 38,
       "parameters": [],
       "recv": "",
@@ -538,8 +538,8 @@
       "doc": "NodeID returns a slice of a copy of the current Node ID, setting the Node ID\nif not already set.\n",
       "name": "NodeID",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/node.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
       "line": 61,
       "parameters": [],
       "recv": "",
@@ -549,8 +549,8 @@
       "doc": "NodeInterface returns the name of the interface from which the NodeID was\nderived.  The interface \"user\" is returned if the NodeID was set by\nSetNodeID.\n",
       "name": "NodeInterface",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/node.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
       "line": 18,
       "parameters": [],
       "recv": "",
@@ -560,8 +560,8 @@
       "doc": "SetClockSeq sets the clock sequence to the lower 14 bits of seq.  Setting to\n-1 causes a new sequence to be generated.\n",
       "name": "SetClockSequence",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/time.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/time.go",
       "line": 92,
       "parameters": [
         {
@@ -576,8 +576,8 @@
       "doc": "SetNodeID sets the Node ID to be used for Version 1 UUIDs.  The first 6 bytes\nof id are used.  If id is less than 6 bytes then false is returned and the\nNode ID is not set.\n",
       "name": "SetNodeID",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/node.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
       "line": 73,
       "parameters": [
         {
@@ -592,8 +592,8 @@
       "doc": "SetNodeInterface selects the hardware address to be used for Version 1 UUIDs.\nIf name is \"\" then the first usable interface found will be used or a random\nNode ID will be generated.  If a named interface cannot be found then false\nis returned.\n\nSetNodeInterface never fails when name is \"\".\n",
       "name": "SetNodeInterface",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/node.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/node.go",
       "line": 28,
       "parameters": [
         {
@@ -608,8 +608,8 @@
       "doc": "SetRand sets the random number generator to r, which implents io.Reader.\nIf r.Read returns an error when the package requests random data then\na panic will be issued.\n\nCalling SetRand with nil sets the random number generator to the default\ngenerator.\n",
       "name": "SetRand",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid.go",
       "line": 157,
       "parameters": [
         {
@@ -624,8 +624,8 @@
       "doc": "",
       "name": "TestBadRand",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 377,
       "parameters": [
         {
@@ -640,8 +640,8 @@
       "doc": "",
       "name": "TestClockSeq",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 168,
       "parameters": [
         {
@@ -656,8 +656,8 @@
       "doc": "TestClockSeqRace tests for a particular race condition of returning two\nidentical Version1 UUIDs.  The duration of 1 minute was chosen as the race\ncondition, before being fixed, nearly always occured in under 30 seconds.\n",
       "name": "TestClockSeqRace",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/seq_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/seq_test.go",
       "line": 20,
       "parameters": [
         {
@@ -672,8 +672,8 @@
       "doc": "",
       "name": "TestCoding",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 205,
       "parameters": [
         {
@@ -688,8 +688,8 @@
       "doc": "",
       "name": "TestConstants",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 108,
       "parameters": [
         {
@@ -704,8 +704,8 @@
       "doc": "",
       "name": "TestDCE",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 362,
       "parameters": [
         {
@@ -720,8 +720,8 @@
       "doc": "",
       "name": "TestJSON",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/json_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/json_test.go",
       "line": 15,
       "parameters": [
         {
@@ -736,8 +736,8 @@
       "doc": "",
       "name": "TestMD5",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 294,
       "parameters": [
         {
@@ -752,8 +752,8 @@
       "doc": "",
       "name": "TestNew",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 138,
       "parameters": [
         {
@@ -768,8 +768,8 @@
       "doc": "",
       "name": "TestNodeAndTime",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 273,
       "parameters": [
         {
@@ -784,8 +784,8 @@
       "doc": "",
       "name": "TestNodeID",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 310,
       "parameters": [
         {
@@ -800,8 +800,8 @@
       "doc": "",
       "name": "TestRandomUUID",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 120,
       "parameters": [
         {
@@ -816,8 +816,8 @@
       "doc": "",
       "name": "TestSHA1",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 302,
       "parameters": [
         {
@@ -832,8 +832,8 @@
       "doc": "",
       "name": "TestUUID",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 101,
       "parameters": [
         {
@@ -848,8 +848,8 @@
       "doc": "",
       "name": "TestVersion1",
       "packageName": "uuid",
-      "packageImportPath": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid",
-      "filename": "/Users/swenson/gopath/src/code.google.com/p/go-uuid/uuid/uuid_test.go",
+      "packageImportPath": "../../../code.google.com/p/go-uuid/uuid",
+      "filename": "../../../code.google.com/p/go-uuid/uuid/uuid_test.go",
       "line": 228,
       "parameters": [
         {

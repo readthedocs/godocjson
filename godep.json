@@ -2,7 +2,7 @@
   "type": "package",
   "doc": "Command godep helps build packages reproducibly by fixing\ntheir dependencies.\n\nExample Usage\n\nSave currently-used dependencies to file Godeps:\n\n\t$ godep save\n\nBuild project using saved dependencies:\n\n\t$ godep go install\n\nor\n\n\t$ GOPATH=`godep path`:$GOPATH\n\t$ go install\n",
   "name": "main",
-  "importPath": "/Users/swenson/gopath/src/github.com/tools/godep",
+  "importPath": "../../../github.com/tools/godep",
   "imports": [
     "bufio",
     "bytes",
@@ -32,29 +32,29 @@
     "text/template"
   ],
   "filenames": [
-    "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/doc.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/get.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/go.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/main.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/match_test.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/path.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/pkg.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/restore.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/rewrite.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/rewrite_test.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/save.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/save_test.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/update.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/update_test.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/util.go",
-    "/Users/swenson/gopath/src/github.com/tools/godep/vcs.go"
+    "../../../github.com/tools/godep/dep.go",
+    "../../../github.com/tools/godep/doc.go",
+    "../../../github.com/tools/godep/get.go",
+    "../../../github.com/tools/godep/go.go",
+    "../../../github.com/tools/godep/main.go",
+    "../../../github.com/tools/godep/match_test.go",
+    "../../../github.com/tools/godep/path.go",
+    "../../../github.com/tools/godep/pkg.go",
+    "../../../github.com/tools/godep/restore.go",
+    "../../../github.com/tools/godep/rewrite.go",
+    "../../../github.com/tools/godep/rewrite_test.go",
+    "../../../github.com/tools/godep/save.go",
+    "../../../github.com/tools/godep/save_test.go",
+    "../../../github.com/tools/godep/update.go",
+    "../../../github.com/tools/godep/update_test.go",
+    "../../../github.com/tools/godep/util.go",
+    "../../../github.com/tools/godep/vcs.go"
   ],
   "notes": {
     "TODO": [
       {
-        "pos": 80288,
-        "end": 80327,
+        "pos": 78202,
+        "end": 78241,
         "uid": "kr",
         "body": "find tag names if possible\n"
       }
@@ -64,20 +64,20 @@
   "consts": [
     {
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
+      "packageImportPath": "../../../github.com/tools/godep",
       "doc": "",
       "names": [
         "Readme"
       ],
       "type": "const",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/save.go",
+      "filename": "../../../github.com/tools/godep/save.go",
       "line": 418
     }
   ],
   "types": [
     {
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
+      "packageImportPath": "../../../github.com/tools/godep",
       "doc": "A Command is an implementation of a godep command\nlike godep save or godep go.\n",
       "name": "Command",
       "type": "",
@@ -91,8 +91,8 @@
           "doc": "",
           "name": "Name",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/main.go",
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/main.go",
           "line": 35,
           "parameters": [],
           "recv": "*Command",
@@ -102,8 +102,8 @@
           "doc": "",
           "name": "UsageExit",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/main.go",
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/main.go",
           "line": 44,
           "parameters": [],
           "recv": "*Command",
@@ -113,7 +113,7 @@
     },
     {
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
+      "packageImportPath": "../../../github.com/tools/godep",
       "doc": "A Dependency is a specific revision of a package.\n",
       "name": "Dependency",
       "type": "",
@@ -122,98 +122,11 @@
       "consts": [],
       "vars": [],
       "funcs": [],
-      "methods": [
-        {
-          "doc": "Creates an empty repo in d.RepoPath().\n",
-          "name": "CreateRepo",
-          "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 261,
-          "parameters": [
-            {
-              "type": "string",
-              "name": "fastRemote"
-            },
-            {
-              "type": "",
-              "name": ""
-            }
-          ],
-          "recv": "Dependency",
-          "orig": "Dependency"
-        },
-        {
-          "doc": "Returns the url of a local disk clone of the repo, if any.\n",
-          "name": "FastRemotePath",
-          "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 237,
-          "parameters": [],
-          "recv": "Dependency",
-          "orig": "Dependency"
-        },
-        {
-          "doc": "Returns a path to a parent of Workdir such that using\nGopath in GOPATH makes d available to the go tool.\n",
-          "name": "Gopath",
-          "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 256,
-          "parameters": [],
-          "recv": "Dependency",
-          "orig": "Dependency"
-        },
-        {
-          "doc": "Returns a URL for the remote copy of the repository.\n",
-          "name": "RemoteURL",
-          "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 232,
-          "parameters": [],
-          "recv": "Dependency",
-          "orig": "Dependency"
-        },
-        {
-          "doc": "Returns a path to the local copy of d's repository.\nE.g.\n\n  ImportPath             RepoPath\n  github.com/kr/s3       $spool/github.com/kr/s3\n  github.com/lib/pq/oid  $spool/github.com/lib/pq\n",
-          "name": "RepoPath",
-          "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 227,
-          "parameters": [],
-          "recv": "Dependency",
-          "orig": "Dependency"
-        },
-        {
-          "doc": "Returns a path to the checked-out copy of d's commit.\n",
-          "name": "Workdir",
-          "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 245,
-          "parameters": [],
-          "recv": "Dependency",
-          "orig": "Dependency"
-        },
-        {
-          "doc": "Returns a path to the checked-out copy of d's repo root.\n",
-          "name": "WorkdirRoot",
-          "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 250,
-          "parameters": [],
-          "recv": "Dependency",
-          "orig": "Dependency"
-        }
-      ]
+      "methods": []
     },
     {
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
+      "packageImportPath": "../../../github.com/tools/godep",
       "doc": "Godeps describes what a package needs to be rebuilt reproducibly.\nIt's the same information stored in file Godeps.\n",
       "name": "Godeps",
       "type": "",
@@ -226,9 +139,9 @@
           "doc": "",
           "name": "ReadAndLoadGodeps",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 175,
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/dep.go",
+          "line": 168,
           "parameters": [
             {
               "type": "string",
@@ -244,9 +157,9 @@
           "doc": "pkgs is the list of packages to read dependencies\n",
           "name": "Load",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 52,
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/dep.go",
+          "line": 45,
           "parameters": [
             {
               "type": "[]*Package",
@@ -260,9 +173,9 @@
           "doc": "",
           "name": "WriteTo",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-          "line": 212,
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/dep.go",
+          "line": 185,
           "parameters": [
             {
               "type": "io.Writer",
@@ -276,7 +189,7 @@
     },
     {
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
+      "packageImportPath": "../../../github.com/tools/godep",
       "doc": "",
       "name": "Package",
       "type": "",
@@ -289,7 +202,7 @@
     },
     {
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
+      "packageImportPath": "../../../github.com/tools/godep",
       "doc": "",
       "name": "VCS",
       "type": "",
@@ -302,9 +215,9 @@
           "doc": "",
           "name": "VCSForImportPath",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/vcs.go",
-          "line": 87,
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/vcs.go",
+          "line": 71,
           "parameters": [
             {
               "type": "string",
@@ -318,17 +231,17 @@
           "doc": "",
           "name": "VCSFromDir",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/vcs.go",
-          "line": 75,
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/vcs.go",
+          "line": 59,
           "parameters": [
             {
               "type": "string",
               "name": "dir"
             },
             {
-              "type": "",
-              "name": ""
+              "type": "string",
+              "name": "srcRoot"
             }
           ],
           "recv": "",
@@ -340,17 +253,17 @@
           "doc": "RevSync checks out the revision given by rev in dir.\nThe dir must exist and rev must be a valid revision.\n",
           "name": "RevSync",
           "packageName": "main",
-          "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-          "filename": "/Users/swenson/gopath/src/github.com/tools/godep/vcs.go",
-          "line": 139,
+          "packageImportPath": "../../../github.com/tools/godep",
+          "filename": "../../../github.com/tools/godep/vcs.go",
+          "line": 108,
           "parameters": [
             {
               "type": "string",
               "name": "dir"
             },
             {
-              "type": "",
-              "name": ""
+              "type": "string",
+              "name": "rev"
             }
           ],
           "recv": "*VCS",
@@ -365,8 +278,8 @@
       "doc": "LoadPackages loads the named packages using go list -json.\nUnlike the go tool, an empty argument list is treated as\nan empty list; \".\" must be given explicitly if desired.\n",
       "name": "LoadPackages",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/pkg.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/pkg.go",
       "line": 34,
       "parameters": [
         {
@@ -381,9 +294,9 @@
       "doc": "",
       "name": "LoadVCSAndUpdate",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/update.go",
-      "line": 110,
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/update.go",
+      "line": 161,
       "parameters": [
         {
           "type": "[]Dependency",
@@ -397,9 +310,9 @@
       "doc": "",
       "name": "ReadGodeps",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/dep.go",
-      "line": 148,
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/dep.go",
+      "line": 141,
       "parameters": [
         {
           "type": "string",
@@ -417,8 +330,8 @@
       "doc": "",
       "name": "TestMatchPattern",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/match_test.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/match_test.go",
       "line": 5,
       "parameters": [
         {
@@ -433,8 +346,8 @@
       "doc": "",
       "name": "TestQualify",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/rewrite_test.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/rewrite_test.go",
       "line": 26,
       "parameters": [
         {
@@ -449,8 +362,8 @@
       "doc": "",
       "name": "TestRewrite",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/rewrite_test.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/rewrite_test.go",
       "line": 82,
       "parameters": [
         {
@@ -465,8 +378,8 @@
       "doc": "",
       "name": "TestSave",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/save_test.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/save_test.go",
       "line": 62,
       "parameters": [
         {
@@ -481,8 +394,8 @@
       "doc": "",
       "name": "TestStripImportComment",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/save_test.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/save_test.go",
       "line": 1094,
       "parameters": [
         {
@@ -497,8 +410,8 @@
       "doc": "",
       "name": "TestUnqualify",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/rewrite_test.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/rewrite_test.go",
       "line": 9,
       "parameters": [
         {
@@ -513,8 +426,8 @@
       "doc": "",
       "name": "TestUpdate",
       "packageName": "main",
-      "packageImportPath": "/Users/swenson/gopath/src/github.com/tools/godep",
-      "filename": "/Users/swenson/gopath/src/github.com/tools/godep/update_test.go",
+      "packageImportPath": "../../../github.com/tools/godep",
+      "filename": "../../../github.com/tools/godep/update_test.go",
       "line": 13,
       "parameters": [
         {

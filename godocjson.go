@@ -134,11 +134,14 @@ func typeOf(x interface{}) string {
 }
 
 func processFuncDecl(d *ast.FuncDecl, fun *Func) {
-	fun.Params = make([]FuncParam, d.Type.Params.NumFields())
-	for i, f := range d.Type.Params.List {
-		fun.Params[i] = FuncParam{
-			Type: typeOf(f.Type),
-			Name: f.Names[0].String(),
+	fun.Params = make([]FuncParam, 0)
+	for _, f := range d.Type.Params.List {
+		t := typeOf(f.Type)
+		for _, name := range f.Names {
+			fun.Params = append(fun.Params, FuncParam{
+				Type: t,
+				Name: name.String(),
+			})
 		}
 	}
 	// TODO: process return types
