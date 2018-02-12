@@ -7,6 +7,7 @@ import (
 	"go/doc"
 	"go/parser"
 	"go/token"
+	"log"
 	"os"
 	"strings"
 )
@@ -236,8 +237,12 @@ func CopyPackage(pkg *doc.Package, fileSet *token.FileSet) Package {
 }
 
 func main() {
-	if len(os.Args) > 2 {
-		panic("Please specify a single directory as the argument.\n")
+	// Disable timestamps inside the log file as we will just use it as wrapper
+	// around stderr for now.
+	log.SetFlags(0)
+
+	if len(os.Args) != 2 {
+		log.Fatal("Please specify a single directory as the argument.")
 	}
 	directory := os.Args[1]
 	fileSet := token.NewFileSet()
@@ -253,7 +258,7 @@ func main() {
 		cleanedPkg := CopyPackage(docPkg, fileSet)
 		pkgJSON, err := json.MarshalIndent(cleanedPkg, "", "  ")
 		if err != nil {
-			panic(err)
+			log.Fatal("Failed to encode JSON: %s", err)
 		}
 		fmt.Printf("%s\n", pkgJSON)
 	}
