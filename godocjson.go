@@ -130,6 +130,8 @@ func typeOf(x interface{}) string {
 			results[i] = typeOf(r.Type)
 		}
 		return fmt.Sprintf("func(%s)%s", strings.Join(params, ","), strings.Join(results, ","))
+	case *ast.MapType:
+		return fmt.Sprintf("map [%s]%s", typeOf(x.Key), typeOf(x.Value))
 	default:
 		panic(fmt.Sprintf("Unknown type %+v", x))
 	}
