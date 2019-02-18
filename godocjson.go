@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"flag"
 	"fmt"
 	"go/ast"
 	"go/doc"
@@ -9,6 +10,7 @@ import (
 	"go/token"
 	"log"
 	"os"
+	"regexp"
 	"strings"
 )
 
@@ -238,17 +240,47 @@ func CopyPackage(pkg *doc.Package, fileSet *token.FileSet) Package {
 	return newPkg
 }
 
+// Building filter function that can be used with parser.ParseDir
+func GetExcludeFilter(re string) func(os.FileInfo) bool {
+	if re != "" {
+		return func(info os.FileInfo) bool {
+			matched, err := regexp.MatchString(re, info.Name())
+			if err != nil {
+				panic(err)
+			} else {
+				return !matched
+			}
+		}
+	}
+
+	// Returning nil by default results no filtering
+	return nil
+}
+
+func GetUsageText()  {
+	log.Println("Usage of godocjson:")
+	log.Println("godocjson [-e] target_directory")
+	flag.PrintDefaults()
+}
+
 func main() {
+	var filter_regexp string
 	// Disable timestamps inside the log file as we will just use it as wrapper
 	// around stderr for now.
 	log.SetFlags(0)
 
-	if len(os.Args) != 2 {
-		log.Fatal("Please specify a single directory as the argument.")
+	flag.Usage = GetUsageText
+	flag.StringVar(&filter_regexp,"e", "", "Regex filter for excluding source files")
+	flag.Parse()
+
+	directory := flag.Arg(0)
+	if directory == "" {
+		flag.Usage()
+		log.Fatal("Fatal: Please specify a target_directory.", )
 	}
-	directory := os.Args[1]
+
 	fileSet := token.NewFileSet()
-	pkgs, firstError := parser.ParseDir(fileSet, directory, nil, parser.ParseComments|parser.AllErrors)
+	pkgs, firstError := parser.ParseDir(fileSet, directory, GetExcludeFilter(filter_regexp), parser.ParseComments|parser.AllErrors)
 	if firstError != nil {
 		panic(firstError)
 	}
