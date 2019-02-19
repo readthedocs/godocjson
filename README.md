@@ -10,4 +10,12 @@ Make sure your Go environment is configured correctly, then run:
 
 ## Usage
 
-```godocjson <directory>```
+```godocjson [-e <pattern>] <directory>```
+
+The **godocjson** scans <directory> for Go packages and outputs JSON-formatted documentation to stdout
+
+The options are as follows:
+
+    -e   <pattern>   Exclude files that match specified pattern from processing.
+                     Example usage:
+                        godocjson -e _test.go ./go/sources/folder
