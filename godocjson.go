@@ -24,6 +24,7 @@ type Func struct {
 	Filename          string      `json:"filename"`
 	Line              int         `json:"line"`
 	Params            []FuncParam `json:"parameters"`
+	Results           []FuncParam `json:"results"`
 
 	// methods
 	// (for functions, these fields have the respective zero value)
@@ -153,7 +154,26 @@ func processFuncDecl(d *ast.FuncDecl, fun *Func) {
 			})
 		}
 	}
-	// TODO: process return types
+	fun.Results = make([]FuncParam, 0)
+	if d.Type.Results != nil {
+		for _, f := range d.Type.Results.List {
+			t := typeOf(f.Type)
+			if len(f.Names) == 0 {
+				// For case func foo() Type
+				fun.Results = append(fun.Results, FuncParam{
+					Type: t,
+				})
+			} else {
+				// For case func foo() (name, name Type)
+				for _, name := range f.Names {
+					fun.Results = append(fun.Results, FuncParam{
+						Type: t,
+						Name: name.String(),
+					})
+				}
+			}
+		}
+	}
 }
 
 // CopyFuncs produces a json-annotated array of Func objects from an array of GoDoc Func objects.
