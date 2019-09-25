@@ -134,6 +134,14 @@ func typeOf(x interface{}) string {
 		return fmt.Sprintf("func(%s)%s", strings.Join(params, ","), strings.Join(results, ","))
 	case *ast.MapType:
 		return fmt.Sprintf("map [%s]%s", typeOf(x.Key), typeOf(x.Value))
+	case *ast.ChanType:
+		if x.Dir == ast.SEND {
+			return fmt.Sprintf("chan<- %s", typeOf(x.Value))
+		} else if x.Dir == ast.RECV {
+			return fmt.Sprintf("<-chan %s", typeOf(x.Value))
+		} else {
+			return fmt.Sprintf("chan %s", typeOf(x.Value))
+		}
 	default:
 		panic(fmt.Sprintf("Unknown type %+v", x))
 	}
