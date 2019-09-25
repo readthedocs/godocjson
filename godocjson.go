@@ -127,9 +127,12 @@ func typeOf(x interface{}) string {
 		for i, p := range x.Params.List {
 			params[i] = typeOf(p.Type)
 		}
-		results := make([]string, x.Results.NumFields())
-		for i, r := range x.Results.List {
-			results[i] = typeOf(r.Type)
+		var results []string
+		if x.Results != nil {
+			results = make([]string, x.Results.NumFields())
+			for i, r := range x.Results.List {
+				results[i] = typeOf(r.Type)
+			}
 		}
 		return fmt.Sprintf("func(%s)%s", strings.Join(params, ","), strings.Join(results, ","))
 	case *ast.MapType:
